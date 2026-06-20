@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://csumw250v5uwe"]
+
+[ext_resource type="Script" uid="uid://cukne8hvo7tgt" path="res://world/space.gd" id="1_qhdaa"]
+[ext_resource type="PackedScene" uid="uid://cq0m6i8g3vtfr" path="res://world/planet.tscn" id="2_5adde"]
+[ext_resource type="PackedScene" uid="uid://cxbt46sleg46y" path="res://core/player.tscn" id="3_88r13"]
+[ext_resource type="PackedScene" uid="uid://bnhe2jnrqgxdf" path="res://ui/game_camera.tscn" id="4_88r13"]
+
+[node name="space" type="Node3D" unique_id=1755352422]
+script = ExtResource("1_qhdaa")
+
+[node name="planets" type="Node" parent="." unique_id=149161201]
+
+[node name="planet" parent="planets" unique_id=976849000 instance=ExtResource("2_5adde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.595037, 0, 1.7545863)
+
+[node name="planet2" parent="planets" unique_id=484875515 instance=ExtResource("2_5adde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9946356, 0, -4.5008216)
+
+[node name="planet3" parent="planets" unique_id=1901946466 instance=ExtResource("2_5adde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.231673, 0, -3.4692774)
+
+[node name="Player" parent="." unique_id=1247875391 instance=ExtResource("3_88r13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79662, 0, 0.5180969)
+
+[node name="game camera" parent="." unique_id=1279937024 instance=ExtResource("4_88r13")]
+transform = Transform3D(0.68673706, -0.45483005, 0.56702894, 0.006282836, 0.7837431, 0.6210534, -0.7268788, -0.42293784, 0.54108304, 1.8902245, 1.9399092, 2.253383)

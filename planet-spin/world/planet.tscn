@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cq0m6i8g3vtfr"]
+
+[ext_resource type="Script" uid="uid://3yvw4epsouia" path="res://world/planet.gd" id="1_mmmqq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mmmqq"]
+
+[node name="planet" type="Node3D" unique_id=976849000]
+script = ExtResource("1_mmmqq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=974989527]
+mesh = SubResource("SphereMesh_mmmqq")
