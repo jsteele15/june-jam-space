@@ -1,10 +1,15 @@
 class_name Player extends Node3D
 
 var planet_orbiting: Planet
-var radius = 5.0
-var speed = 1.0
+var radius = 2.0
+var speed = 2.0
 var angle = 0.0
 var current_speed : int = 5
+
+#this is to handle what kind of movement to do
+var leaving_orbit : bool = false
+var in_orbit : bool = true
+var firing_rockets : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,11 +22,31 @@ func _process(delta: float) -> void:
 
 func _move(delta) -> void:
 	"""the point of this is to fly around the planets and jetison off to other places"""
-	angle += speed * delta
-
-	var x = cos(angle) * radius
-	var z = sin(angle) * radius
 	
-	if planet_orbiting == null:
-		return
-	global_transform.origin = planet_orbiting.global_transform.origin + Vector3(x, 0, z)
+	if in_orbit == true and firing_rockets == false:
+		angle += speed * delta
+
+		var x = cos(angle) * radius
+		var z = sin(angle) * radius
+		
+		if planet_orbiting == null:
+			return
+		global_transform.origin = planet_orbiting.global_transform.origin + Vector3(x, 0, z)
+		look_at(planet_orbiting.global_position, Vector3.UP)
+		rotate(Vector3.UP, deg_to_rad(90))
+	
+	else:
+
+		global_position += -global_transform.basis.z * speed * delta
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.get_parent() is Planet:
+		in_orbit = true
+		planet_orbiting = area.get_parent()
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.get_parent() is Planet:
+		#set the leaving orbit to false when it leave an orbit to allow the ship 
+		#to attach to a new orbit
+		leaving_orbit = false
