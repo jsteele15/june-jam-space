@@ -24,6 +24,9 @@ var planet_spin_speed : float
 #
 #current mission will be a planet you have to get to
 var current_mission : int = 0
+#ive put the player ref here so im free to move it around different pivots without ref errors
+#its declared when the player loads
+var player : Player
 #TODO decide if this should be money you have before going bancrupt
 #that way you have to decide between getting fuel or getting time
 var time_left : int = 100

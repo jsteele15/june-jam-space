@@ -20,7 +20,7 @@ var left_rockets : bool = false
 var right_rockets : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	gameVars.player = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
