@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d35lwhwi7r0m8"]
+
+[node name="saturn_mesh" type="MeshInstance3D" unique_id=1477878211]

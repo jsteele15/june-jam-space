@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c34byvoxgc6pd"]
+
+[ext_resource type="Texture2D" uid="uid://cirygenaiibjf" path="res://res/planet skins/sun.png" id="1_1ws1g"]
+
+[resource]
+albedo_texture = ExtResource("1_1ws1g")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dj1qdgi4b2t6y"]
+
+[ext_resource type="Texture2D" uid="uid://7ncw6rpm3t57" path="res://res/planet skins/venus.png" id="1_r5eo4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a61s6"]
+albedo_texture = ExtResource("1_r5eo4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_h22oe"]
+
+[node name="venus_mesh" type="MeshInstance3D" unique_id=1504326002]
+material_override = SubResource("StandardMaterial3D_a61s6")
+mesh = SubResource("SphereMesh_h22oe")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dfy71inlsjcex"]
+
+[ext_resource type="Texture2D" uid="uid://dgj4pp2tv510u" path="res://res/planet skins/mars.png" id="1_2viap"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huygb"]
+albedo_texture = ExtResource("1_2viap")
+
+[sub_resource type="SphereMesh" id="SphereMesh_usi8a"]
+
+[node name="mars_mesh" type="MeshInstance3D" unique_id=319051100]
+material_override = SubResource("StandardMaterial3D_huygb")
+mesh = SubResource("SphereMesh_usi8a")

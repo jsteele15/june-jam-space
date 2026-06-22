@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://0q22pdno1jbo"]
+
+[ext_resource type="Texture2D" uid="uid://wnbm0pkxs24f" path="res://res/planet skins/neptune.png" id="1_esdd8"]
+
+[resource]
+albedo_texture = ExtResource("1_esdd8")

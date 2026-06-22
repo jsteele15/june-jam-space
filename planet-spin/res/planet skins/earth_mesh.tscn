@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bw1q7b0akckkk"]
+
+[ext_resource type="Texture2D" uid="uid://cgmf1j82bp0dy" path="res://res/planet skins/earth.png" id="1_tgpv2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mb37"]
+albedo_texture = ExtResource("1_tgpv2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_3rtty"]
+
+[node name="earth_mesh" type="MeshInstance3D" unique_id=1098916611]
+material_override = SubResource("StandardMaterial3D_3mb37")
+mesh = SubResource("SphereMesh_3rtty")

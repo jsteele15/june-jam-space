@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://22ax7d38qq3c"]
+
+[ext_resource type="Texture2D" uid="uid://cirygenaiibjf" path="res://res/planet skins/sun.png" id="1_hdkxn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adodm"]
+albedo_texture = ExtResource("1_hdkxn")
+
+[sub_resource type="SphereMesh" id="SphereMesh_d7yjx"]
+
+[node name="sun mesh" type="MeshInstance3D" unique_id=2093753677]
+material_override = SubResource("StandardMaterial3D_adodm")
+mesh = SubResource("SphereMesh_d7yjx")
