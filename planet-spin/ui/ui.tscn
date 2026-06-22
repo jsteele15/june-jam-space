@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://qn0l7ugeafch"]
+
+[ext_resource type="Script" uid="uid://dp5f80tuugdkj" path="res://ui/game_text.gd" id="1_nb4k0"]
+
+[node name="ui" type="CanvasLayer" unique_id=668875438]
+
+[node name="container for text ui" type="GridContainer" parent="." unique_id=1904247070]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="speed text" type="RichTextLabel" parent="container for text ui" unique_id=2142593890]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]CURRENT SPEED"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="container for objectives" type="GridContainer" parent="container for text ui" unique_id=189086607]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="current time" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=926028586]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center] CURRENT TIME"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="cross hair" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=1308764231]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]+"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="current mission" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=197537693]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]CURRENT MISSION"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="fuel text" type="RichTextLabel" parent="container for text ui" unique_id=810007213]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]CURRENT FUEL"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"

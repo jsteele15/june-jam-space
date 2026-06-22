@@ -9,14 +9,27 @@ func _ready() -> void:
 	player.planet_orbiting = planet_layer.get_child(0)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
-
-
 func _input(event: InputEvent) -> void:
+	#
+	#	All the inputs for the game, 
+	#	launch is space; you have to hold launch to leave planets atmosphere
+	#	left and right are left and right, but will only work when not in atmosphere
+	#
 	if event.is_action_pressed("launch"):
 		player.in_orbit = false
 		player.firing_rockets = true
 		
 	if event.is_action_released("launch"):
 		player.firing_rockets = false
+		
+	if event.is_action_pressed("rocketleft"):
+		player.left_rockets = true
+		
+	if event.is_action_released("rocketleft"):
+		player.left_rockets = false
+		
+	if event.is_action_pressed("rocketright"):
+		player.right_rockets = true
+		
+	if event.is_action_released("rocketright"):
+		player.right_rockets = false

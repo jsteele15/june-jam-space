@@ -3,18 +3,21 @@
 [ext_resource type="Script" uid="uid://cukne8hvo7tgt" path="res://world/space.gd" id="1_qhdaa"]
 [ext_resource type="PackedScene" uid="uid://cq0m6i8g3vtfr" path="res://world/planet.tscn" id="2_5adde"]
 [ext_resource type="PackedScene" uid="uid://cxbt46sleg46y" path="res://core/player.tscn" id="3_88r13"]
-[ext_resource type="Texture2D" uid="uid://cirygenaiibjf" path="res://res/planet skins/sun.png" id="3_ceetw"]
 [ext_resource type="PackedScene" uid="uid://bnhe2jnrqgxdf" path="res://ui/game_camera.tscn" id="4_88r13"]
 [ext_resource type="PackedScene" uid="uid://22ax7d38qq3c" path="res://res/planet skins/sun_mesh.tscn" id="4_y8l3r"]
 [ext_resource type="Shader" uid="uid://c3ycrgf2k0w1w" path="res://world/space.gdshader" id="5_5emu0"]
-[ext_resource type="Texture2D" uid="uid://7ncw6rpm3t57" path="res://res/planet skins/venus.png" id="5_xgcgn"]
 [ext_resource type="PackedScene" uid="uid://bjba44t68b7y2" path="res://res/planet skins/mercury_mesh.tscn" id="6_i08w8"]
-[ext_resource type="Texture2D" uid="uid://cgmf1j82bp0dy" path="res://res/planet skins/earth.png" id="6_unjii"]
 [ext_resource type="PackedScene" uid="uid://dj1qdgi4b2t6y" path="res://res/planet skins/venus_mesh.tscn" id="8_bbnai"]
 [ext_resource type="PackedScene" uid="uid://cpvmv5qpkcs4i" path="res://res/planet skins/moon_mesh.tscn" id="10_i08w8"]
 [ext_resource type="PackedScene" uid="uid://bw1q7b0akckkk" path="res://res/planet skins/earth_mesh.tscn" id="10_ssc5l"]
 [ext_resource type="Script" uid="uid://3yvw4epsouia" path="res://world/planet.gd" id="11_bbnai"]
 [ext_resource type="PackedScene" uid="uid://dfy71inlsjcex" path="res://res/planet skins/mars_mesh.tscn" id="12_ssc5l"]
+[ext_resource type="PackedScene" uid="uid://d35lwhwi7r0m8" path="res://res/planet skins/saturn_mesh.tscn" id="13_4cilt"]
+[ext_resource type="PackedScene" uid="uid://beexrp7xtw1v2" path="res://res/planet skins/jupiter_mesh.tscn" id="13_6mayy"]
+[ext_resource type="PackedScene" uid="uid://2h65yxshaysl" path="res://res/planet skins/uranus_mesh.tscn" id="15_gf530"]
+[ext_resource type="PackedScene" uid="uid://twend72w3ppx" path="res://res/planet skins/neptune_mesh.tscn" id="16_fspvd"]
+[ext_resource type="PackedScene" uid="uid://cu7g3tbtx6rcb" path="res://res/planet skins/pluto_mesh.tscn" id="17_fspvd"]
+[ext_resource type="PackedScene" uid="uid://qn0l7ugeafch" path="res://ui/ui.tscn" id="18_lodr4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iyt27"]
 shader = ExtResource("5_5emu0")
@@ -46,7 +49,6 @@ script = ExtResource("1_qhdaa")
 [node name="planets" type="Node" parent="." unique_id=149161201]
 
 [node name="sun" parent="planets" unique_id=976849000 instance=ExtResource("2_5adde")]
-planet_texture = ExtResource("3_ceetw")
 
 [node name="sun mesh" parent="planets/sun" unique_id=2093753677 instance=ExtResource("4_y8l3r")]
 
@@ -61,7 +63,6 @@ planet_name = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101533175, 0, -9.603501)
 planets_sun = NodePath("../sun")
 planet_name = 2
-planet_texture = ExtResource("5_xgcgn")
 
 [node name="venus_mesh" parent="planets/venus" unique_id=1504326002 instance=ExtResource("8_bbnai")]
 
@@ -69,7 +70,6 @@ planet_texture = ExtResource("5_xgcgn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101533175, 0, -19.022697)
 planets_sun = NodePath("../sun")
 planet_name = 3
-planet_texture = ExtResource("6_unjii")
 
 [node name="earth_mesh" parent="planets/earth" unique_id=1098916611 instance=ExtResource("10_ssc5l")]
 
@@ -77,7 +77,6 @@ planet_texture = ExtResource("6_unjii")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.430387, 0, 0.06576347)
 planets_sun = NodePath("..")
 planet_name = 4
-planet_texture = ExtResource("6_unjii")
 
 [node name="moon_mesh" parent="planets/earth/moon" unique_id=1498792360 instance=ExtResource("10_i08w8")]
 
@@ -93,28 +92,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.45995)
 script = ExtResource("11_bbnai")
 metadata/_custom_type_script = "uid://3yvw4epsouia"
 
+[node name="jupiter_mesh" parent="planets/jupiter" unique_id=1722045894 instance=ExtResource("13_6mayy")]
+
 [node name="saturn" type="Node3D" parent="planets" unique_id=960212219]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.567688)
 script = ExtResource("11_bbnai")
 metadata/_custom_type_script = "uid://3yvw4epsouia"
 
+[node name="saturn_mesh" parent="planets/saturn" unique_id=1477878211 instance=ExtResource("13_4cilt")]
+
 [node name="uranus" type="Node3D" parent="planets" unique_id=861554195]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -61.232613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -56.383755)
 script = ExtResource("11_bbnai")
 metadata/_custom_type_script = "uid://3yvw4epsouia"
+
+[node name="uranus_mesh" parent="planets/uranus" unique_id=858119407 instance=ExtResource("15_gf530")]
 
 [node name="nepture" type="Node3D" parent="planets" unique_id=417117084]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75.17739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67.92722)
 script = ExtResource("11_bbnai")
 metadata/_custom_type_script = "uid://3yvw4epsouia"
 
+[node name="neptune_mesh" parent="planets/nepture" unique_id=770367456 instance=ExtResource("16_fspvd")]
+
 [node name="pluto" type="Node3D" parent="planets" unique_id=888221338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -96.80546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -73.38516)
 script = ExtResource("11_bbnai")
 metadata/_custom_type_script = "uid://3yvw4epsouia"
+
+[node name="pluto_mesh" parent="planets/pluto" unique_id=1276908139 instance=ExtResource("17_fspvd")]
 
 [node name="Player" parent="." unique_id=1247875391 instance=ExtResource("3_88r13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6433799, 0, 1.1178174)
+
+[node name="game camera" parent="Player" unique_id=1279937024 instance=ExtResource("4_88r13")]
+current = true
+size = 1.9226767
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1002330190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1676476, 0, 0)
@@ -123,7 +136,9 @@ light_color = Color(1, 0.6588286, 0.3130353, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741857564]
 environment = SubResource("Environment_88r13")
 
-[node name="game camera" parent="." unique_id=1279937024 instance=ExtResource("4_88r13")]
+[node name="game camera" parent="." unique_id=290219407 instance=ExtResource("4_88r13")]
 transform = Transform3D(0.6845557, -0.38304392, 0.62021035, 0.030129572, 0.8649553, 0.50094366, -0.7283377, -0.3242372, 0.603651, 13.513142, 10.744469, 13.949797)
 projection = 1
 size = 20.010366
+
+[node name="ui" parent="." unique_id=668875438 instance=ExtResource("18_lodr4")]

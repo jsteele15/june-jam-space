@@ -7,18 +7,25 @@ enum PLANETS {
 	VENUS,
 	EARTH,
 	MOON,
+	MARS,
+	JUPITER,
+	SATURN,
+	URANUS,
+	NEPTUNE,
+	PLUTO
 }
 
+#just used for the planets animation, has no relation to player speed
+var planet_spin_speed : float
 
-var planet_stats : Dictionary = {
-	#radius, speed
-	PLANETS.SUN : [10, 2],
-	PLANETS.MERCURY : [10, 1.5],
-	PLANETS.VENUS : [14, 1.0],
-	PLANETS.EARTH : [18, 1.0],
-	PLANETS.MOON : [2, 1.0]
-}
-
-
+#
+#  vars for the player
+#
+#
+#current mission will be a planet you have to get to
+var current_mission : int = 0
+#TODO decide if this should be money you have before going bancrupt
+#that way you have to decide between getting fuel or getting time
+var time_left : int = 100
 var fuel: int = 100
 var player_speed : int = 100

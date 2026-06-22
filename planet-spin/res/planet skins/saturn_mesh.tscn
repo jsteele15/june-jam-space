@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://d35lwhwi7r0m8"]
 
+[ext_resource type="Texture2D" uid="uid://bockjed6o216d" path="res://res/planet skins/saturn.png" id="1_m7tbg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1s1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goo2b"]
+albedo_texture = ExtResource("1_m7tbg")
+
+[sub_resource type="SphereMesh" id="SphereMesh_whp2h"]
+
 [node name="saturn_mesh" type="MeshInstance3D" unique_id=1477878211]
+material_override = SubResource("StandardMaterial3D_t1s1u")
+material_overlay = SubResource("StandardMaterial3D_goo2b")
+mesh = SubResource("SphereMesh_whp2h")
