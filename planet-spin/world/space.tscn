@@ -73,12 +73,12 @@ planet_name = 3
 
 [node name="earth_mesh" parent="planets/earth" unique_id=1098916611 instance=ExtResource("10_ssc5l")]
 
-[node name="moon" parent="planets/earth" unique_id=315837972 node_paths=PackedStringArray("planets_sun") instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.430387, 0, 0.06576347)
-planets_sun = NodePath("..")
+[node name="moon" parent="planets" unique_id=315837972 node_paths=PackedStringArray("planets_sun") instance=ExtResource("2_5adde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3288538, 0, -18.956934)
+planets_sun = NodePath("../earth")
 planet_name = 4
 
-[node name="moon_mesh" parent="planets/earth/moon" unique_id=1498792360 instance=ExtResource("10_i08w8")]
+[node name="moon_mesh" parent="planets/moon" unique_id=1498792360 instance=ExtResource("10_i08w8")]
 
 [node name="mars" type="Node3D" parent="planets" unique_id=1781495063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.711683)

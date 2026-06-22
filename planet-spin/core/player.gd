@@ -32,6 +32,9 @@ func _move(delta) -> void:
 	"""the point of this is to fly around the planets and jetison off to other places"""
 	
 	if in_orbit == true and firing_rockets == false:
+		look_at(planet_orbiting.global_position, Vector3.UP)
+		rotate(Vector3.UP, deg_to_rad(90))
+		pass
 		angle += speed * delta
 
 		var x = cos(angle) * radius
@@ -50,6 +53,7 @@ func _move(delta) -> void:
 			self.rotate_y(+correction_speed)
 		if right_rockets == true:
 			self.rotate_y(-correction_speed)
+
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Planet:
