@@ -38,7 +38,7 @@ func _move(delta) -> void:
 	if self.get_parent() is Pivot and firing_rockets == false:
 		return
 	
-	global_position += -global_transform.basis.z * gameVars.player_speed * delta
+	global_position += -global_transform.basis.z * (gameVars.player_speed+gameVars.speed_boost) * delta
 	
 
 

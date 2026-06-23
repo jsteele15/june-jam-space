@@ -13,7 +13,7 @@ height = 1.2368164
 script = ExtResource("1_3x74s")
 
 [node name="ShipModel" type="MeshInstance3D" parent="." unique_id=50686177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19195879, 0.20493373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19195879, -0.4299945)
 mesh = SubResource("BoxMesh_3x74s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1293072209]

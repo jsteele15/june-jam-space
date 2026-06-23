@@ -2,8 +2,10 @@ class_name Space extends Node3D
 
 
 @onready var planet_layer : Node = $planets
-@onready var game_camera : Camera3D = $"game camera"
+@onready var game_camera : Camera3D = $"Player/game camera"
 
+func _process(delta: float) -> void:
+	game_camera.firing()
 
 func _input(event: InputEvent) -> void:
 	#
@@ -16,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_released("launch"):
 		gameVars.player.firing_rockets = false
+		gameVars.speed_boost = 0.0
 		
 	if event.is_action_pressed("rocketleft"):
 		gameVars.player.left_rockets = true
