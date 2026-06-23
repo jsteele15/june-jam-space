@@ -49,4 +49,5 @@ var fuel: int = 100
 var player_speed : float = 1.0
 #used when pressing the rocket boost
 var speed_boost : float = 0.0
+var current_cash : int = 0
 var MAX_SPEED : float = 8.0

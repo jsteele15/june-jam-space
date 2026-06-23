@@ -31,12 +31,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
 
-[node name="speed text" type="RichTextLabel" parent="container for text ui" unique_id=2142593890]
+[node name="cross hair" type="RichTextLabel" parent="container for text ui" unique_id=1019654590]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 bbcode_enabled = true
-text = "[center]CURRENT SPEED"
 fit_content = true
 script = ExtResource("1_nb4k0")
 metadata/_custom_type_script = "uid://dp5f80tuugdkj"
@@ -46,17 +45,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="current time" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=926028586]
+[node name="cross hair" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=1308764231]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 bbcode_enabled = true
-text = "[center] CURRENT TIME"
 fit_content = true
 script = ExtResource("1_nb4k0")
 metadata/_custom_type_script = "uid://dp5f80tuugdkj"
 
-[node name="cross hair" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=1308764231]
+[node name="cross hair2" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=510433678]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -66,12 +64,11 @@ fit_content = true
 script = ExtResource("1_nb4k0")
 metadata/_custom_type_script = "uid://dp5f80tuugdkj"
 
-[node name="current mission" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=197537693]
+[node name="cross hair3" type="RichTextLabel" parent="container for text ui/container for objectives" unique_id=1775789707]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 bbcode_enabled = true
-text = "[center]CURRENT MISSION"
 fit_content = true
 script = ExtResource("1_nb4k0")
 metadata/_custom_type_script = "uid://dp5f80tuugdkj"
@@ -98,11 +95,12 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -306.0
-offset_top = -223.0
+offset_top = -194.0
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=2029931014]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.251634
@@ -115,6 +113,20 @@ expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
+[node name="cross hair3" type="RichTextLabel" parent="Control/TextureRect" unique_id=294352407]
+layout_mode = 0
+offset_left = -923.0
+offset_top = 76.0
+offset_right = -540.0
+offset_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]+"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
 [node name="Panel" type="Panel" parent="Control" unique_id=698739108]
 layout_mode = 1
 anchors_preset = 15
@@ -124,15 +136,54 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ks8t7")
 
+[node name="GridContainer" type="GridContainer" parent="Control" unique_id=517078571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="speed text" type="RichTextLabel" parent="Control/GridContainer" unique_id=2142593890]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]CURRENT SPEED"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="current time" type="RichTextLabel" parent="Control/GridContainer" unique_id=926028586]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center] CURRENT TIME"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="current mission" type="RichTextLabel" parent="Control/GridContainer" unique_id=197537693]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+bbcode_enabled = true
+text = "[center]CURRENT MISSION"
+fit_content = true
+script = ExtResource("1_nb4k0")
+metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
 [node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=423620726]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -306.0
-offset_top = -220.0
-offset_right = -226.0
+offset_left = -84.0
+offset_top = -419.0
+offset_right = -4.0
+offset_bottom = -199.0
 grow_horizontal = 0
 grow_vertical = 0
 value = 100.0
