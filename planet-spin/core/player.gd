@@ -8,7 +8,7 @@ var radius = 2.0
 var angle = 0.0
 var current_speed : int = 5
 #used by directions
-var correction_speed : float = 0.01
+var correction_speed : float   = 0.02
 var fuel_reduction : int = 1
 
 #this is to handle what kind of movement to do
