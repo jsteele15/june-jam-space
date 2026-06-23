@@ -4,8 +4,12 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adodm"]
 albedo_texture = ExtResource("1_hdkxn")
+backlight_enabled = true
+grow = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_d7yjx"]
+radius = 2.0
+height = 4.0
 
 [node name="sun mesh" type="MeshInstance3D" unique_id=2093753677]
 material_override = SubResource("StandardMaterial3D_adodm")

@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3yvw4epsouia" path="res://world/planet.gd" id="1_mmmqq"]
 [ext_resource type="PackedScene" uid="uid://bs416kogc5u0o" path="res://world/pivot.tscn" id="2_d38ao"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_mmmqq"]
-height = 0.23486328
-radius = 1.125
+[ext_resource type="Shape3D" uid="uid://codk2ylf7xuge" path="res://res/collision shapes/large col.tres" id="3_01u2o"]
 
 [node name="planet" type="Node3D" unique_id=976849000]
 script = ExtResource("1_mmmqq")
@@ -16,7 +13,6 @@ script = ExtResource("1_mmmqq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1077737332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0063476563, 0)
-shape = SubResource("CylinderShape3D_mmmqq")
+shape = ExtResource("3_01u2o")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

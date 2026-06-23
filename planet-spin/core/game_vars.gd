@@ -31,4 +31,5 @@ var player : Player
 #that way you have to decide between getting fuel or getting time
 var time_left : int = 100
 var fuel: int = 100
-var player_speed : int = 100
+var player_speed : float = 1.0
+var MAX_SPEED : float = 8.0

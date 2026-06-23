@@ -2,9 +2,9 @@ class_name Planet extends Node3D
 
 
 @export var planet_mesh : MeshInstance3D
-@export var planets_sun : Planet
 @export var planet_name : int
 @onready var pivot : Pivot = $pivot
+@onready var col_box : CollisionShape3D = $Area3D/CollisionShape3D
 
 enum PLANET_SIZES {
 	None = -1,
@@ -53,18 +53,24 @@ func _ready() -> void:
 	
 	_decide_sizes()
 
+func _process(delta: float) -> void:
+	if gameVars.player.firing_rockets == true:
+		if gameVars.player.get_parent() != Space:
+			_change_player_parent(false)
+			col_box.disabled == false
+
 
 func _decide_sizes():
 	"""function called in the ready to decide how large the areas should be"""
 	match planet_size:
 		PLANET_SIZES.SMALL:
-			pass
+			col_box.shape = load("res://res/collision shapes/small_col.tres")
 		PLANET_SIZES.MEDIUM:
-			pass
+			col_box.shape = load("res://res/collision shapes/medium_col.tres")
 		PLANET_SIZES.LARGE:
-			pass
+			col_box.shape = load("res://res/collision shapes/large col.tres")
 		PLANET_SIZES.SUN:
-			pass
+			col_box.shape = load("res://res/collision shapes/large col.tres")
 
 func _change_player_parent(entering : bool):
 	"""called in area detection"""
@@ -74,11 +80,20 @@ func _change_player_parent(entering : bool):
 		gameVars.player.reparent(self.get_parent().get_parent())
 
 
+func get_yaw_side(player: Node3D, target: Node3D) -> float:
+	var to_target = (target.global_position - player.global_position).normalized()
+	var forward = -player.global_transform.basis.z
+
+	# Signed angle around Y axis
+	return rad_to_deg(atan2(
+		forward.cross(to_target).y,
+		forward.dot(to_target)
+	))
+
+
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
+		pivot.pivot_dir(get_yaw_side(gameVars.player, self))
 		_change_player_parent(true)
-
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.get_parent() is Player:
-		_change_player_parent(false)
+		col_box.disabled == true
+		

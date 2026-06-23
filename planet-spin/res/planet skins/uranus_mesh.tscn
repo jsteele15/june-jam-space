@@ -6,6 +6,8 @@
 albedo_texture = ExtResource("1_6r5gd")
 
 [sub_resource type="SphereMesh" id="SphereMesh_hj2iy"]
+radius = 1.0
+height = 2.0
 
 [node name="uranus_mesh" type="MeshInstance3D" unique_id=858119407]
 material_override = SubResource("StandardMaterial3D_b6aeh")

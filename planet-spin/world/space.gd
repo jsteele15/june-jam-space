@@ -12,7 +12,6 @@ func _input(event: InputEvent) -> void:
 	#	left and right are left and right, but will only work when not in atmosphere
 	#
 	if event.is_action_pressed("launch"):
-		gameVars.player.in_orbit = false
 		gameVars.player.firing_rockets = true
 		
 	if event.is_action_released("launch"):
