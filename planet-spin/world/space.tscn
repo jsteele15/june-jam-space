@@ -37,9 +37,9 @@ ambient_light_source = 3
 ambient_light_energy = 1.66
 reflected_light_source = 2
 glow_enabled = true
-glow_intensity = 8.0
-glow_strength = 0.72
-glow_bloom = 0.12
+glow_intensity = 5.23
+glow_strength = 0.58
+glow_bloom = 0.14
 glow_blend_mode = 0
 
 [node name="space" type="Node3D" unique_id=1755352422]
@@ -78,33 +78,39 @@ planet_name = 4
 
 [node name="mars" parent="planets" unique_id=2143195315 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.816598, 0, -27.929728)
+planet_name = 5
 
 [node name="mars_mesh" parent="planets/mars" unique_id=319051100 instance=ExtResource("12_ssc5l")]
 
 [node name="jupiter" parent="planets" unique_id=1370600723 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6361523, 0, -39.901375)
+planet_name = 6
 
 [node name="jupiter_mesh" parent="planets/jupiter" unique_id=1722045894 instance=ExtResource("13_6mayy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22777033, 0, -0.27077484)
 
 [node name="saturn" parent="planets" unique_id=355479976 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.132387, 0, -48.52208)
+planet_name = 7
 
 [node name="saturn_mesh" parent="planets/saturn" unique_id=1477878211 instance=ExtResource("13_4cilt")]
 
 [node name="uranus" parent="planets" unique_id=633755101 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.544832, 0, -58.582363)
+planet_name = 8
 
 [node name="uranus_mesh" parent="planets/uranus" unique_id=858119407 instance=ExtResource("15_gf530")]
 
 [node name="neptune" parent="planets" unique_id=649449750 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.851266, 0, -67.58063)
+planet_name = 9
 
 [node name="neptune_mesh" parent="planets/neptune" unique_id=770367456 instance=ExtResource("16_fspvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10823965, 0, -0.34659576)
 
 [node name="pluto" parent="planets" unique_id=1662374832 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20261931, 0, -77.8522)
+planet_name = 10
 
 [node name="pluto_mesh" parent="planets/pluto" unique_id=1276908139 instance=ExtResource("17_fspvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20261931, 0, 0.38909912)
@@ -114,11 +120,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8842134, 0, 1.1178174)
 
 [node name="game camera" parent="Player" unique_id=1279937024 instance=ExtResource("4_88r13")]
 current = true
+fov = 22.6
 size = 1.9226767
+near = 0.001
 
 [node name="sun light" type="DirectionalLight3D" parent="." unique_id=1002330190]
 transform = Transform3D(0.9996265, 0, 0.027328454, 0, 1, 0, -0.027328454, 0, 0.9996265, -0.51379704, 0.25413132, 9.939121)
-light_color = Color(0.9041664, 0.7226851, 3.85046e-07, 1)
+light_color = Color(1, 0.92599344, 0.72648776, 1)
+light_energy = 1.16
+light_indirect_energy = 1.48
+light_volumetric_fog_energy = 1.8
+light_specular = 0.76
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1511748873]
 transform = Transform3D(-0.6242614, 0, -0.78121555, 0, 1, 0, 0.78121555, 0, -0.6242614, 1.9341934, 0, -98.16684)
@@ -127,10 +139,5 @@ light_energy = 0.12
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741857564]
 environment = SubResource("Environment_88r13")
-
-[node name="game camera" parent="." unique_id=290219407 instance=ExtResource("4_88r13")]
-transform = Transform3D(0.6845557, -0.38304392, 0.62021035, 0.030129572, 0.8649553, 0.50094366, -0.7283377, -0.3242372, 0.603651, 13.513142, 10.744469, 13.949797)
-projection = 1
-size = 20.010366
 
 [node name="ui" parent="." unique_id=668875438 instance=ExtResource("18_lodr4")]

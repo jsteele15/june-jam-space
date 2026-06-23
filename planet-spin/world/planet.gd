@@ -1,10 +1,9 @@
 class_name Planet extends Node3D
 
-
-@export var planet_mesh : MeshInstance3D
 @export var planet_name : int
 @onready var pivot : Pivot = $pivot
 @onready var col_box : CollisionShape3D = $Area3D/CollisionShape3D
+var planet_mesh : MeshInstance3D
 
 enum PLANET_SIZES {
 	None = -1,
@@ -52,13 +51,23 @@ func _ready() -> void:
 			planet_size = PLANET_SIZES.SMALL
 	
 	_decide_sizes()
+	
+	await get_tree().process_frame
+	for c in self.get_children():
+		if c is MeshInstance3D:
+			planet_mesh = c
 
 func _process(delta: float) -> void:
 	if gameVars.player.firing_rockets == true:
 		if gameVars.player.get_parent() != Space:
 			_change_player_parent(false)
 			col_box.disabled == false
+	
+	planet_mesh.rotate_y(0.001)
 
+func _mission_arrived():
+	"""called when player get to the right planet, right now itll just give you a new mission randomly"""
+	gameVars.current_mission = randi_range(0, gameVars.PLANETS.Max-1)
 
 func _decide_sizes():
 	"""function called in the ready to decide how large the areas should be"""
@@ -93,6 +102,10 @@ func get_yaw_side(player: Node3D, target: Node3D) -> float:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
+		if gameVars.player.firing_rockets == true:
+			return
+		if gameVars.current_mission == self.planet_name:
+			_mission_arrived()
 		pivot.pivot_dir(get_yaw_side(gameVars.player, self))
 		_change_player_parent(true)
 		col_box.disabled == true

@@ -9,6 +9,7 @@ var angle = 0.0
 var current_speed : int = 5
 #used by directions
 var correction_speed : float = 0.01
+var fuel_reduction : int = 1
 
 #this is to handle what kind of movement to do
 var leaving_orbit : bool = false
@@ -39,3 +40,10 @@ func _move(delta) -> void:
 	
 	global_position += -global_transform.basis.z * gameVars.player_speed * delta
 	
+
+
+func _on_fuel_tick_timeout() -> void:
+	if firing_rockets == true or left_rockets == true or right_rockets == true:
+		gameVars.fuel -= fuel_reduction
+	else:
+		return

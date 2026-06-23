@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://daekdc5r07x2q" path="res://core/player.gd" id="1_3x74s"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_3x74s"]
+[sub_resource type="BoxMesh" id="BoxMesh_3x74s"]
+size = Vector3(0.185, 0.195, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3x74s"]
 radius = 0.6171875
@@ -12,10 +13,19 @@ height = 1.2368164
 script = ExtResource("1_3x74s")
 
 [node name="ShipModel" type="MeshInstance3D" parent="." unique_id=50686177]
-mesh = SubResource("PrismMesh_3x74s")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19195879, 0.20493373)
+mesh = SubResource("BoxMesh_3x74s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1293072209]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1688206302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3815918, -0.3926053)
 shape = SubResource("CapsuleShape3D_3x74s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=878729947]
+
+[node name="fuel tick" type="Timer" parent="." unique_id=720704101]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="fuel tick" to="." method="_on_fuel_tick_timeout"]

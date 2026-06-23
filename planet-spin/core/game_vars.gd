@@ -12,7 +12,22 @@ enum PLANETS {
 	SATURN,
 	URANUS,
 	NEPTUNE,
-	PLUTO
+	PLUTO,
+	Max
+}
+
+var planet_mission_text : Dictionary = {
+	PLANETS.SUN : "Sun",
+	PLANETS.MERCURY : "Mercury",
+	PLANETS.VENUS : "Venus",
+	PLANETS.EARTH : "Earth",
+	PLANETS.MOON : "Moon",
+	PLANETS.MARS : "Mars",
+	PLANETS.JUPITER : "Jupiter",
+	PLANETS.SATURN : "Saturn",
+	PLANETS.URANUS : "Uranus",
+	PLANETS.NEPTUNE : "Neptune",
+	PLANETS.PLUTO : "Pluto"
 }
 
 #just used for the planets animation, has no relation to player speed

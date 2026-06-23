@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://cirygenaiibjf" path="res://res/planet skins/sun.png" id="1_hdkxn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adodm"]
+albedo_color = Color(0.6996445, 0.5787141, 0.049705356, 1)
 albedo_texture = ExtResource("1_hdkxn")
+emission_enabled = true
+emission = Color(0.45207757, 0.297704, 0.16037938, 1)
+emission_energy_multiplier = 1.84
 backlight_enabled = true
 grow = true
 

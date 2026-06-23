@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://qn0l7ugeafch"]
 
+[ext_resource type="Script" uid="uid://bhkbvowp0g0pf" path="res://ui/ui.gd" id="1_ks8t7"]
 [ext_resource type="Script" uid="uid://dp5f80tuugdkj" path="res://ui/game_text.gd" id="1_nb4k0"]
+[ext_resource type="Texture2D" uid="uid://3eke1v2img6i" path="res://res/ui elements/fuel bar back.png" id="3_tf0e0"]
+[ext_resource type="Texture2D" uid="uid://cyqj5efu4b7ek" path="res://res/ui elements/fuelgage.png" id="3_vkava"]
+[ext_resource type="Texture2D" uid="uid://c7blvv53eok2t" path="res://res/ui elements/fuel gage over.png" id="4_tf0e0"]
+[ext_resource type="Texture2D" uid="uid://b8stbcvqotgnq" path="res://res/ui elements/planet_ims.png" id="6_obcwv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ks8t7"]
+bg_color = Color(0.09019608, 0.09019608, 0.09019608, 0.21960784)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.91764706, 0.7529412, 0.08627451, 1)
+corner_detail = 12
+shadow_size = 1
+shadow_offset = Vector2(0, 14.695)
 
 [node name="ui" type="CanvasLayer" unique_id=668875438]
+script = ExtResource("1_ks8t7")
 
 [node name="container for text ui" type="GridContainer" parent="." unique_id=1904247070]
 anchors_preset = 15
@@ -68,3 +85,60 @@ text = "[center]CURRENT FUEL"
 fit_content = true
 script = ExtResource("1_nb4k0")
 metadata/_custom_type_script = "uid://dp5f80tuugdkj"
+
+[node name="ui update" type="Timer" parent="." unique_id=190479257]
+wait_time = 0.1
+autostart = true
+
+[node name="Control" type="Control" parent="." unique_id=1602682406]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -223.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2029931014]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.251634
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_obcwv")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control" unique_id=698739108]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ks8t7")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=423620726]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -220.0
+offset_right = -226.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_tf0e0")
+texture_over = ExtResource("3_vkava")
+texture_progress = ExtResource("4_tf0e0")
+
+[connection signal="timeout" from="ui update" to="." method="_on_timer_timeout"]
