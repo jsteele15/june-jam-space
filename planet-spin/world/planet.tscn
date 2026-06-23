@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://3yvw4epsouia" path="res://world/planet.gd" id="1_mmmqq"]
 [ext_resource type="PackedScene" uid="uid://bs416kogc5u0o" path="res://world/pivot.tscn" id="2_d38ao"]
 [ext_resource type="Shape3D" uid="uid://codk2ylf7xuge" path="res://res/collision shapes/large col.tres" id="3_01u2o"]
+[ext_resource type="Texture2D" uid="uid://brdb6hwwgxw2a" path="res://res/ui elements/ring.png" id="4_qpsm4"]
 
 [node name="planet" type="Node3D" unique_id=976849000]
 script = ExtResource("1_mmmqq")
+planet_name = null
 
 [node name="pivot" parent="." unique_id=65756055 instance=ExtResource("2_d38ao")]
 
@@ -14,5 +16,9 @@ script = ExtResource("1_mmmqq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1077737332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0063476563, 0)
 shape = ExtResource("3_01u2o")
+
+[node name="drop off ring" type="Sprite3D" parent="." unique_id=2111048705]
+transform = Transform3D(1, 0, 0, 0, 0.04060268, 0.99917537, 0, -0.99917537, 0.04060268, 0, 0, 0)
+texture = ExtResource("4_qpsm4")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

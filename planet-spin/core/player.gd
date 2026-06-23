@@ -43,6 +43,7 @@ func _move(delta) -> void:
 
 
 func _on_fuel_tick_timeout() -> void:
+	print(self.position)
 	if firing_rockets == true or left_rockets == true or right_rockets == true:
 		gameVars.fuel -= fuel_reduction
 	else:

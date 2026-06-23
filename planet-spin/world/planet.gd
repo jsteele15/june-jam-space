@@ -3,6 +3,7 @@ class_name Planet extends Node3D
 @export var planet_name : int
 @onready var pivot : Pivot = $pivot
 @onready var col_box : CollisionShape3D = $Area3D/CollisionShape3D
+@onready var drop_off_ring : Sprite3D = $"drop off ring"
 var planet_mesh : MeshInstance3D
 
 enum PLANET_SIZES {
@@ -62,6 +63,8 @@ func _process(delta: float) -> void:
 		if gameVars.player.get_parent() != Space:
 			_change_player_parent(false)
 			col_box.disabled == false
+			drop_off_ring.visible = true
+			
 	
 	planet_mesh.rotate_y(0.001)
 
@@ -74,8 +77,10 @@ func _decide_sizes():
 	match planet_size:
 		PLANET_SIZES.SMALL:
 			col_box.shape = load("res://res/collision shapes/small_col.tres")
+			drop_off_ring.scale = Vector3(0.48, 0.48, 0.48)
 		PLANET_SIZES.MEDIUM:
 			col_box.shape = load("res://res/collision shapes/medium_col.tres")
+			drop_off_ring.scale = Vector3(0.8, 0.8, 0.8)
 		PLANET_SIZES.LARGE:
 			col_box.shape = load("res://res/collision shapes/large col.tres")
 		PLANET_SIZES.SUN:
@@ -109,4 +114,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		pivot.pivot_dir(get_yaw_side(gameVars.player, self))
 		_change_player_parent(true)
 		col_box.disabled == true
+		drop_off_ring.visible = false
 		

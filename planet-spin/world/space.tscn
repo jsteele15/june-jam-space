@@ -48,7 +48,7 @@ script = ExtResource("1_qhdaa")
 [node name="planets" type="Node" parent="." unique_id=149161201]
 
 [node name="sun" parent="planets" unique_id=976849000 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3057976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81038857, 0, -0.79402447)
 
 [node name="sun mesh" parent="planets/sun" unique_id=2093753677 instance=ExtResource("4_y8l3r")]
 
@@ -59,23 +59,22 @@ planet_name = 1
 [node name="mercury_mesh" parent="planets/mercury" unique_id=1187305185 instance=ExtResource("6_i08w8")]
 
 [node name="venus" parent="planets" unique_id=1901946466 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.18223, 0, -18.101274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3183565, 0, -11.78458)
 planet_name = 2
 
 [node name="venus_mesh" parent="planets/venus" unique_id=1504326002 instance=ExtResource("8_bbnai")]
 
 [node name="earth" parent="planets" unique_id=1634039528 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.844225, 0, -25.534395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.957, 0, 0.278)
 planet_name = 3
 
 [node name="earth_mesh" parent="planets/earth" unique_id=1098916611 instance=ExtResource("10_ssc5l")]
 
 [node name="moon" parent="planets" unique_id=315837972 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06439972, 0, -27.327871)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.212, 0, -6.299)
 planet_name = 4
 
 [node name="moon_mesh" parent="planets/moon" unique_id=1498792360 instance=ExtResource("10_i08w8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95903397, 0, 0)
 
 [node name="mars" parent="planets" unique_id=2143195315 instance=ExtResource("2_5adde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.816598, 0, -40.793297)
@@ -144,3 +143,10 @@ light_volumetric_fog_energy = 8.68
 light_size = 0.505
 light_specular = 0.76
 omni_range = 228.54495
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1815067820]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.19329071, 22.407536, 0)
+projection = 1
+current = true
+fov = 73.125
+size = 24.410107
