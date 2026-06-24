@@ -60,7 +60,7 @@ var player : Player
 #that way you have to decide between getting fuel or getting time
 var time_left : int = 100
 var fuel: int = 100
-var player_speed : float = 1.0
+var player_speed : float = 5.0
 #used when pressing the rocket boost
 var speed_boost : float = 0.0
 var current_cash : int = 0

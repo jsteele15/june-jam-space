@@ -3,6 +3,8 @@ class_name Space extends Node3D
 
 @onready var planet_layer : Node = $planets
 @onready var sound_board : SoundBoard = $sound_board
+@onready var camera : Camera = $Camera3D
+@onready var player : Player = $Player
 
 
 func _input(event: InputEvent) -> void:
@@ -32,3 +34,8 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_released("rocketright"):
 		gameVars.player.right_rockets = false
+	
+	if event.is_action_pressed("ui_accept"):
+		camera.zoom_level += 1
+		print(camera.zoom_level)
+		
