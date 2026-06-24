@@ -75,8 +75,7 @@ func drop_cargo(destination : int):
 	if len(list_to_be_ordered) == 0:
 		return
 	
-	for c in range(0, len(list_to_be_ordered)-1):
-		cargo[c] = list_to_be_ordered[c]
+	cargo = list_to_be_ordered
 	
 	while len(cargo)-1 < MAX_CARGO:
 		cargo.append(gameVars.PLANETS.None)
