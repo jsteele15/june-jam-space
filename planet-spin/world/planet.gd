@@ -4,6 +4,7 @@ class_name Planet extends Node3D
 @onready var pivot : Pivot = $pivot
 @onready var col_box : CollisionShape3D = $Area3D/CollisionShape3D
 @onready var drop_off_ring : Sprite3D = $"drop off ring"
+@onready var packages : PackageCollection = $packages
 var planet_mesh : MeshInstance3D
 
 enum PLANET_SIZES {
@@ -115,4 +116,10 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		_change_player_parent(true)
 		col_box.disabled == true
 		drop_off_ring.visible = false
+		packages.pick_up_package(gameVars.player)
+		gameVars.player.drop_cargo(self.planet_name)
 		
+
+
+func _on_start_packages_timeout() -> void:
+	packages.set_new_package()
