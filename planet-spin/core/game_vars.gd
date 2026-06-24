@@ -30,6 +30,20 @@ var planet_mission_text : Dictionary = {
 	PLANETS.PLUTO : "Pluto"
 }
 
+var planet_colours : Dictionary = {
+	PLANETS.SUN : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.MERCURY : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.VENUS : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.EARTH : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.MOON : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.MARS : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.JUPITER : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.SATURN : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.URANUS : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.NEPTUNE : Color(0.96, 0.559, 0.0, 1.0),
+	PLANETS.PLUTO : Color(0.96, 0.559, 0.0, 1.0)
+}
+
 #just used for the planets animation, has no relation to player speed
 var planet_spin_speed : float
 
