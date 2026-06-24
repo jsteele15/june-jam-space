@@ -66,7 +66,7 @@ func drop_cargo(destination : int):
 		if c == destination:
 			#add cash or some shit
 			c = gameVars.PLANETS.None
-
+			print("drop off cargo")
 		else:
 			if c > gameVars.PLANETS.None:
 				list_to_be_ordered.append(c)

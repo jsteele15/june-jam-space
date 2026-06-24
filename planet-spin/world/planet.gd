@@ -54,6 +54,8 @@ func _ready() -> void:
 	
 	_decide_sizes()
 	
+	drop_off_ring.modulate = gameVars.planet_colours[self.planet_name]
+	
 	await get_tree().process_frame
 	for c in self.get_children():
 		if c is MeshInstance3D:

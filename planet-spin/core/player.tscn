@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://daekdc5r07x2q" path="res://core/player.gd" id="1_3x74s"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x74s"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_3x74s"]
 size = Vector3(0.185, 0.195, 1)
 
@@ -14,6 +18,7 @@ script = ExtResource("1_3x74s")
 
 [node name="ShipModel" type="MeshInstance3D" parent="." unique_id=50686177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19195879, -0.4299945)
+material_override = SubResource("StandardMaterial3D_3x74s")
 mesh = SubResource("BoxMesh_3x74s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1293072209]

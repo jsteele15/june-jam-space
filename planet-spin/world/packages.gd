@@ -11,8 +11,13 @@ func _ready() -> void:
 
 func _choose_package_destination(pack : int):
 	"""want this to me more complex, but itll do for now"""
-	#TODO set colour of package as well
-	package_destination[pack] = gameVars.PLANETS.MERCURY
+	#TODO change this up so new planets can come online
+	var planet_options : Array = [gameVars.PLANETS.SUN, gameVars.PLANETS.MERCURY, gameVars.PLANETS.VENUS, gameVars.PLANETS.EARTH, gameVars.PLANETS.MOON]
+	var filtered_options = planet_options.filter(func(i): return i != self.get_parent().planet_name)
+
+	var planet_chosen : int = filtered_options.pick_random()
+	package_destination[pack] = planet_chosen
+	self.get_child(pack).modulate = gameVars.planet_colours[planet_chosen]
 
 
 func set_new_package():
@@ -33,7 +38,7 @@ func pick_up_package(player : Player):
 		if self.get_child(p).visible == true:
 			for c in range(0, len(player.cargo)-1):
 				if player.cargo[c] == gameVars.PLANETS.None:
-					player.add_cargo(gameVars.PLANETS.MERCURY, c)
+					player.add_cargo(package_destination[p], c)
 					self.get_child(p).visible = false
 					break
 		else:

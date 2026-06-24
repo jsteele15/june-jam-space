@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cukne8hvo7tgt" path="res://world/space.gd" id="1_qhdaa"]
 [ext_resource type="PackedScene" uid="uid://cq0m6i8g3vtfr" path="res://world/planet.tscn" id="2_5adde"]
 [ext_resource type="PackedScene" uid="uid://cxbt46sleg46y" path="res://core/player.tscn" id="3_88r13"]
-[ext_resource type="PackedScene" uid="uid://bnhe2jnrqgxdf" path="res://ui/game_camera.tscn" id="4_88r13"]
 [ext_resource type="PackedScene" uid="uid://22ax7d38qq3c" path="res://res/planet skins/sun_mesh.tscn" id="4_y8l3r"]
 [ext_resource type="Shader" uid="uid://c3ycrgf2k0w1w" path="res://world/space.gdshader" id="5_5emu0"]
 [ext_resource type="PackedScene" uid="uid://bjba44t68b7y2" path="res://res/planet skins/mercury_mesh.tscn" id="6_i08w8"]
@@ -118,12 +117,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20261931, 0, 0.38909912)
 [node name="Player" parent="." unique_id=1247875391 instance=ExtResource("3_88r13")]
 transform = Transform3D(0.5865844, 0, -0.8098881, 0, 1, 0, 0.8098881, 0, 0.5865844, -6.8842134, 0, 1.1178174)
 
-[node name="game camera" parent="Player" unique_id=1279937024 instance=ExtResource("4_88r13")]
-current = true
-fov = 15.1
-size = 1.9226767
-near = 0.001
-
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1511748873]
 transform = Transform3D(-0.6242614, 0, -0.78121555, 0, 1, 0, 0.78121555, 0, -0.6242614, 1.9341934, 0, -111.03041)
 light_color = Color(0.99999994, 0.9892636, 0.9801275, 1)
@@ -145,7 +138,7 @@ light_specular = 0.76
 omni_range = 228.54495
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1815067820]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.19329071, 22.407536, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.172, 22.408, -6.43)
 projection = 1
 current = true
 fov = 73.125

@@ -2,10 +2,8 @@ class_name Space extends Node3D
 
 
 @onready var planet_layer : Node = $planets
-@onready var game_camera : Camera3D = $"Player/game camera"
 
-func _process(delta: float) -> void:
-	game_camera.firing()
+
 
 func _input(event: InputEvent) -> void:
 	#
