@@ -2,7 +2,7 @@ class_name Space extends Node3D
 
 
 @onready var planet_layer : Node = $planets
-
+@onready var sound_board : SoundBoard = $sound_board
 
 
 func _input(event: InputEvent) -> void:
@@ -13,6 +13,7 @@ func _input(event: InputEvent) -> void:
 	#
 	if event.is_action_pressed("launch"):
 		gameVars.player.firing_rockets = true
+		sound_board.fire_rockets()
 		
 	if event.is_action_released("launch"):
 		gameVars.player.firing_rockets = false
@@ -20,12 +21,14 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("rocketleft"):
 		gameVars.player.left_rockets = true
+		sound_board.fire_rockets()
 		
 	if event.is_action_released("rocketleft"):
 		gameVars.player.left_rockets = false
 		
 	if event.is_action_pressed("rocketright"):
 		gameVars.player.right_rockets = true
+		sound_board.fire_rockets()
 		
 	if event.is_action_released("rocketright"):
 		gameVars.player.right_rockets = false

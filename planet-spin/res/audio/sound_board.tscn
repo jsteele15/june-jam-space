@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://cqxt20y7yjup3"]
 
+[ext_resource type="Script" uid="uid://bkqfsbslr5c6v" path="res://res/audio/sound_board.gd" id="1_ev7av"]
+[ext_resource type="AudioStream" uid="uid://c3vrar347keaj" path="res://res/audio/sfx/amb_space_loop.wav" id="2_eitbg"]
+
 [node name="sound_board" type="Node" unique_id=587396044]
+script = ExtResource("1_ev7av")
+
+[node name="world_ambiance" type="AudioStreamPlayer" parent="." unique_id=509133497]
+stream = ExtResource("2_eitbg")
+
+[node name="rocket_player" type="AudioStreamPlayer" parent="." unique_id=923345763]
+volume_db = -0.5

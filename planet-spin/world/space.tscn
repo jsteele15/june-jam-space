@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cukne8hvo7tgt" path="res://world/space.gd" id="1_qhdaa"]
 [ext_resource type="PackedScene" uid="uid://cq0m6i8g3vtfr" path="res://world/planet.tscn" id="2_5adde"]
+[ext_resource type="PackedScene" uid="uid://cqxt20y7yjup3" path="res://res/audio/sound_board.tscn" id="2_6mayy"]
 [ext_resource type="PackedScene" uid="uid://cxbt46sleg46y" path="res://core/player.tscn" id="3_88r13"]
 [ext_resource type="PackedScene" uid="uid://22ax7d38qq3c" path="res://res/planet skins/sun_mesh.tscn" id="4_y8l3r"]
 [ext_resource type="Shader" uid="uid://c3ycrgf2k0w1w" path="res://world/space.gdshader" id="5_5emu0"]
@@ -43,6 +44,8 @@ glow_blend_mode = 0
 
 [node name="space" type="Node3D" unique_id=1755352422]
 script = ExtResource("1_qhdaa")
+
+[node name="sound_board" parent="." unique_id=587396044 instance=ExtResource("2_6mayy")]
 
 [node name="planets" type="Node" parent="." unique_id=149161201]
 
