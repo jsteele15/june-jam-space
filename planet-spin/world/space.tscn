@@ -16,8 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://2h65yxshaysl" path="res://res/planet skins/uranus_mesh.tscn" id="15_gf530"]
 [ext_resource type="PackedScene" uid="uid://twend72w3ppx" path="res://res/planet skins/neptune_mesh.tscn" id="16_fspvd"]
 [ext_resource type="PackedScene" uid="uid://cu7g3tbtx6rcb" path="res://res/planet skins/pluto_mesh.tscn" id="17_fspvd"]
-[ext_resource type="Script" uid="uid://dqwklehe3b4td" path="res://world/camera_3d.gd" id="18_gf530"]
+[ext_resource type="PackedScene" uid="uid://b7i2qxgvyf8ws" path="res://world/fuel_drop.tscn" id="18_gf530"]
 [ext_resource type="PackedScene" uid="uid://qn0l7ugeafch" path="res://ui/ui.tscn" id="18_lodr4"]
+[ext_resource type="Script" path="res://world/camera_3d.gd" id="19_gf530"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iyt27"]
 shader = ExtResource("5_5emu0")
@@ -117,6 +118,11 @@ planet_name = 10
 [node name="pluto_mesh" parent="planets/pluto" unique_id=1276908139 instance=ExtResource("17_fspvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20261931, 0, 0.38909912)
 
+[node name="collectables" type="Node" parent="." unique_id=1236733224]
+
+[node name="fuel_drop" parent="collectables" unique_id=359621047 instance=ExtResource("18_gf530")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.708, 0, 0)
+
 [node name="Player" parent="." unique_id=1247875391 instance=ExtResource("3_88r13")]
 transform = Transform3D(0.5858249, -0.050871834, -0.8088395, 0.029840624, 0.9987052, -0.041200493, 0.8098881, 0, 0.5865844, -5.672345, 0, 3.2574825)
 
@@ -147,4 +153,4 @@ projection = 1
 current = true
 fov = 73.125
 size = 20.0
-script = ExtResource("18_gf530")
+script = ExtResource("19_gf530")

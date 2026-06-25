@@ -1,17 +1,23 @@
 class_name ui extends CanvasLayer
 
-@onready var current_time_text : GameText = $"Control/GridContainer/current time"
-@onready var speed_text : GameText = $"Control/GridContainer/speed text"
-@onready var current_mission_text : GameText = $"Control/GridContainer/current mission"
-@onready var fuel_text : GameText = $"container for text ui/fuel text"
+
 @onready var fuel_bar : TextureProgressBar = $ProgressBar
+@onready var container_for_cargo : GridContainer = $"control for cargo/container for cargo"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+func _change_cargo_colour():
+	
+	for c in range(0, len(gameVars.player.cargo)):
+		if gameVars.player.cargo[c] == gameVars.PLANETS.None:
+			container_for_cargo.get_child(c).visible = false
+		else:
+			container_for_cargo.get_child(c).visible = true
+	
+			container_for_cargo.get_child(c).modulate = gameVars.planet_colours[gameVars.player.cargo[c]]
+
+
 func _on_timer_timeout() -> void:
-	current_time_text.text = "[center]CURRENT CASHOLA {cash}".format({"cash": gameVars.current_cash})
-	speed_text.text = "[center]CURRENT SPEED {cur_speed}".format({"cur_speed" : round(gameVars.player_speed*1000)})
-	current_mission_text.text = "[center]CURRENT DESTINATION MISSION {place}".format({"place": gameVars.planet_mission_text[gameVars.current_mission]})
-	fuel_text.text = "[center]CURRENT FUEL {fuel}".format({"fuel": gameVars.fuel})
 	fuel_bar.value = gameVars.fuel
+	_change_cargo_colour()
