@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 gameVars="*uid://bpy7e8uqc7i4q"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
-
 [filesystem]
 
 import/blender/enabled=false

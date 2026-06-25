@@ -66,13 +66,13 @@ func add_cargo(destination : int, in_list : int):
 func drop_cargo(destination : int):
 	"""called when landing on a planet, drop off stuff, then re order cargo"""
 	var list_to_be_ordered : Array = []
-	for c in cargo:
-		if c == destination:
+	for c in range(cargo.size()):
+		if cargo[c] == destination:
 			#add cash or some shit
-			c = gameVars.PLANETS.None
+			cargo[c] = gameVars.PLANETS.None
 		else:
-			if c > gameVars.PLANETS.None:
-				list_to_be_ordered.append(c)
+			if cargo[c] > gameVars.PLANETS.None:
+				list_to_be_ordered.append(cargo[c])
 				
 	
 	if len(list_to_be_ordered) == 0:
@@ -83,3 +83,4 @@ func drop_cargo(destination : int):
 	while len(cargo)-1 < MAX_CARGO:
 		cargo.append(gameVars.PLANETS.None)
 	
+	print(cargo)

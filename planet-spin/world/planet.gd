@@ -121,9 +121,8 @@ func get_yaw_side(player: Node3D, target: Node3D) -> float:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print("entered %d", planet_name)
+
 	if area.get_parent() is Player:
-		print("entered %d", planet_name)
 		if gameVars.player.firing_rockets == true:
 			return
 		if gameVars.current_mission == self.planet_name:
@@ -142,10 +141,6 @@ func orbit_player() ->void:
 func _on_start_packages_timeout() -> void:
 	packages.set_new_package()
 
-
-func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.get_parent() is Player:
-		print("exited %d", planet_name)
 		
 func scale_planet_UI(scale: float) -> void:
 	for i : Sprite3D in packages.get_children(true):

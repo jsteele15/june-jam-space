@@ -21,24 +21,32 @@ func _input(event: InputEvent) -> void:
 	#
 	if event.is_action_pressed("launch"):
 		gameVars.player.firing_rockets = true
+		gameVars.player.rocket_fire_left.emitting = true
+		gameVars.player.rocket_fire_right.emitting = true
 		sound_board.fire_rockets()
 		
 	if event.is_action_released("launch"):
 		gameVars.player.firing_rockets = false
+		gameVars.player.rocket_fire_left.emitting = false
+		gameVars.player.rocket_fire_right.emitting = false
 		gameVars.speed_boost = 0.0
 		
 	if event.is_action_pressed("rocketleft"):
 		gameVars.player.left_rockets = true
+		gameVars.player.rocket_fire_left.emitting = true
 		sound_board.fire_rockets()
 		
 	if event.is_action_released("rocketleft"):
 		gameVars.player.left_rockets = false
+		gameVars.player.rocket_fire_left.emitting = false
 		
 	if event.is_action_pressed("rocketright"):
 		gameVars.player.right_rockets = true
+		gameVars.player.rocket_fire_right.emitting = true
 		sound_board.fire_rockets()
 		
 	if event.is_action_released("rocketright"):
+		gameVars.player.rocket_fire_right.emitting = false
 		gameVars.player.right_rockets = false
 	
 	if event.is_action_pressed("enter"):

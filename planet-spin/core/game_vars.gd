@@ -68,7 +68,7 @@ var time_left : int = 100
 var fuel: int = 100
 var player_speed : float = 5.0
 var MAX_FUEL : int = 100
-
+var player_score : int = -100000000
 #used when pressing the rocket boost
 var speed_boost : float = 0.0
 var current_cash : int = 0

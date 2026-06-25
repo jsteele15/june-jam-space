@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkqfsbslr5c6v" path="res://res/audio/sound_board.gd" id="1_ev7av"]
 [ext_resource type="AudioStream" uid="uid://c3vrar347keaj" path="res://res/audio/sfx/amb_space_loop.wav" id="2_eitbg"]
+[ext_resource type="AudioStream" uid="uid://6vrqwvuvq4n7" path="res://res/audio/tracks/Orbit_01_V1.mp3" id="3_8ro4s"]
 
 [node name="sound_board" type="Node" unique_id=587396044]
 script = ExtResource("1_ev7av")
@@ -11,3 +12,6 @@ stream = ExtResource("2_eitbg")
 
 [node name="rocket_player" type="AudioStreamPlayer" parent="." unique_id=923345763]
 volume_db = -0.5
+
+[node name="track" type="AudioStreamPlayer" parent="." unique_id=1232552575]
+stream = ExtResource("3_8ro4s")

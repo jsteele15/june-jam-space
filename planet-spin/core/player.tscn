@@ -3,13 +3,7 @@
 [ext_resource type="Script" uid="uid://daekdc5r07x2q" path="res://core/player.gd" id="1_3x74s"]
 [ext_resource type="PackedScene" uid="uid://dhwlih0f25hyk" path="res://res/ship/ship blend.fbx" id="2_ptdtg"]
 [ext_resource type="PackedScene" uid="uid://bg2malpj765m8" path="res://res/particles/rocket_fire.tscn" id="3_4ae0v"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x74s"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3x74s"]
-size = Vector3(0.185, 0.195, 1)
+[ext_resource type="Texture2D" uid="uid://cgrgpmp3shu2b" path="res://res/ship/ship decal.png" id="4_y0177"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3x74s"]
 radius = 0.7636719
@@ -20,12 +14,6 @@ script = ExtResource("1_3x74s")
 
 [node name="ship blend" parent="." unique_id=169076798 instance=ExtResource("2_ptdtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18193424, 0.33153617)
-
-[node name="ShipModel" type="MeshInstance3D" parent="." unique_id=50686177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19195879, -0.4299945)
-visible = false
-material_override = SubResource("StandardMaterial3D_3x74s")
-mesh = SubResource("BoxMesh_3x74s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1293072209]
 priority = 1
@@ -47,5 +35,9 @@ emitting = false
 [node name="rocket fire right2" parent="." unique_id=299743455 instance=ExtResource("3_4ae0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36013567, -0.15431952, 0.83887935)
 emitting = false
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=582505666]
+transform = Transform3D(0.0030955314, 0.21997818, 0.00014776364, -0.00025759963, 0.00015139952, -0.21999983, -0.21997808, 0.003095355, 0.0002597043, -0.08781889, -0.06128609, 0.37867367)
+texture = ExtResource("4_y0177")
 
 [connection signal="timeout" from="fuel tick" to="." method="_on_fuel_tick_timeout"]

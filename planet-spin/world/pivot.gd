@@ -14,7 +14,6 @@ var delay : bool = false
 
 func pivot_dir(ship_angle : float):
 	"""called in planet, change the direction """
-	print("ship angle", ship_angle)
 	if delay == true:
 		return
 	if ship_angle >= 0:

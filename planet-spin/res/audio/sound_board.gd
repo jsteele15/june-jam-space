@@ -2,6 +2,7 @@ class_name SoundBoard extends Node
 
 @onready var world_ambiance : AudioStreamPlayer = $world_ambiance
 @onready var rocket_player : AudioStreamPlayer = $rocket_player
+@onready var track : AudioStreamPlayer = $track
 
 @onready var rocket_sound_1 = load("res://res/audio/sfx/sfx_rocket_sm/sfx_rocket_sm_01.wav")
 @onready var rocket_sound_2 = load("res://res/audio/sfx/sfx_rocket_sm/sfx_rocket_sm_02.wav")
@@ -10,6 +11,7 @@ class_name SoundBoard extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	world_ambiance.play()
+	track.play()
 
 
 func fire_rockets():
