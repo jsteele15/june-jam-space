@@ -85,40 +85,40 @@ planet_name = 5
 [node name="mars_mesh" parent="planets/mars" unique_id=319051100 instance=ExtResource("12_ssc5l")]
 
 [node name="jupiter" parent="planets" unique_id=1370600723 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.636, 0, 50)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -4.636, 0, 150)
 planet_name = 6
 
 [node name="jupiter_mesh" parent="planets/jupiter" unique_id=1722045894 instance=ExtResource("13_6mayy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22777033, 0, -0.27077484)
 
 [node name="saturn" parent="planets" unique_id=355479976 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.132, 0, 50)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.132, 0, 150)
 planet_name = 7
 
 [node name="saturn_mesh" parent="planets/saturn" unique_id=1477878211 instance=ExtResource("13_4cilt")]
 
 [node name="uranus" parent="planets" unique_id=633755101 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.545, 0, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.545, 0, 150)
 planet_name = 8
 
 [node name="uranus_mesh" parent="planets/uranus" unique_id=858119407 instance=ExtResource("15_gf530")]
 
 [node name="neptune" parent="planets" unique_id=649449750 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.851, 0, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.851, 0, 150)
 planet_name = 9
 
 [node name="neptune_mesh" parent="planets/neptune" unique_id=770367456 instance=ExtResource("16_fspvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10823965, 0, -0.34659576)
 
 [node name="pluto" parent="planets" unique_id=1662374832 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203, 0, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203, 0, 150)
 planet_name = 10
 
 [node name="pluto_mesh" parent="planets/pluto" unique_id=1276908139 instance=ExtResource("17_fspvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20261931, 0, 0.38909912)
 
 [node name="Player" parent="." unique_id=1247875391 instance=ExtResource("3_88r13")]
-transform = Transform3D(0.5865844, 0, -0.8098881, 0, 1, 0, 0.8098881, 0, 0.5865844, -3.95047, 0, 0)
+transform = Transform3D(0.5858249, -0.050871834, -0.8088395, 0.029840624, 0.9987052, -0.041200493, 0.8098881, 0, 0.5865844, -5.672345, 0, 3.2574825)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1511748873]
 transform = Transform3D(-0.6242614, 0, -0.78121555, 0, 1, 0, 0.78121555, 0, -0.6242614, 1.9341934, 0, -111.03041)
@@ -141,7 +141,7 @@ light_specular = 0.76
 omni_range = 228.54495
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1815067820]
-transform = Transform3D(-5.9604645e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 5.9604645e-08, 2.6054018e-15, 0, 20, 0)
+transform = Transform3D(-5.9604645e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 5.9604645e-08, 2.6054018e-15, 0, 100, 0)
 keep_aspect = 0
 projection = 1
 current = true

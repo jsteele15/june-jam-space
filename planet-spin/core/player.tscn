@@ -22,6 +22,7 @@ material_override = SubResource("StandardMaterial3D_3x74s")
 mesh = SubResource("BoxMesh_3x74s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1293072209]
+priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1688206302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3815918, -0.3926053)

@@ -5,6 +5,10 @@ class_name Planet extends Node3D
 @onready var col_box : CollisionShape3D = $Area3D/CollisionShape3D
 @onready var drop_off_ring : Sprite3D = $"drop off ring"
 @onready var packages : PackageCollection = $packages
+@onready var start_pack : Timer = $"start packages"
+
+@onready var player_orbiting : bool = false
+
 var planet_mesh : MeshInstance3D
 
 enum PLANET_SIZES {
@@ -55,6 +59,7 @@ func _ready() -> void:
 	_decide_sizes()
 	
 	drop_off_ring.modulate = gameVars.planet_colours[self.planet_name]
+	$Sprite3D.modulate = gameVars.planet_colours[self.planet_name]
 	
 	await get_tree().process_frame
 	for c in self.get_children():
@@ -64,11 +69,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if gameVars.player.firing_rockets == true:
 		if gameVars.player.get_parent() != Space:
+			col_box.disabled = false
 			_change_player_parent(false)
-			col_box.disabled == false
 			drop_off_ring.visible = true
+			 
 			
-	
+	if player_orbiting:
+		orbit_player()
+		
 	planet_mesh.rotate_y(0.001)
 
 func _mission_arrived():
@@ -91,6 +99,8 @@ func _decide_sizes():
 
 func _change_player_parent(entering : bool):
 	"""called in area detection"""
+	player_orbiting = entering
+	col_box.disabled = entering
 	if entering == true:
 		gameVars.player.reparent(pivot)
 	else:
@@ -109,19 +119,34 @@ func get_yaw_side(player: Node3D, target: Node3D) -> float:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	print("entered %d", planet_name)
 	if area.get_parent() is Player:
+		print("entered %d", planet_name)
 		if gameVars.player.firing_rockets == true:
 			return
 		if gameVars.current_mission == self.planet_name:
 			_mission_arrived()
 		pivot.pivot_dir(get_yaw_side(gameVars.player, self))
 		_change_player_parent(true)
-		col_box.disabled == true
+		col_box.disabled = true
 		drop_off_ring.visible = false
-		packages.pick_up_package(gameVars.player)
 		gameVars.player.drop_cargo(self.planet_name)
+		packages.pick_up_package(gameVars.player)
 		
-
+		
+func orbit_player() ->void:
+	packages.pick_up_package(gameVars.player)
 
 func _on_start_packages_timeout() -> void:
 	packages.set_new_package()
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.get_parent() is Player:
+		print("exited %d", planet_name)
+		
+func scale_planet_UI(scale: float) -> void:
+	$Sprite3D.scale = Vector3(scale, scale, scale)
+	$Sprite3D.position.x = (-$Sprite3D.texture.get_width()/100)*scale -1
+	for i : Sprite3D in packages.get_children(true):
+		i.scale = Vector3(scale, scale, scale)

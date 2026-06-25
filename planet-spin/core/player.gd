@@ -42,6 +42,8 @@ func _move(delta) -> void:
 
 	if self.get_parent() is Pivot and firing_rockets == false:
 		return
+		
+	self.global_position.y = 0
 	
 	global_position += -global_transform.basis.z * (gameVars.player_speed+gameVars.speed_boost) * delta
 	
@@ -56,7 +58,7 @@ func _on_fuel_tick_timeout() -> void:
 func add_cargo(destination : int, in_list : int):
 	"""called in packages"""
 	cargo[in_list] = destination
-	print(cargo)
+
 	
 	
 func drop_cargo(destination : int):
@@ -66,7 +68,6 @@ func drop_cargo(destination : int):
 		if c == destination:
 			#add cash or some shit
 			c = gameVars.PLANETS.None
-			print("drop off cargo")
 		else:
 			if c > gameVars.PLANETS.None:
 				list_to_be_ordered.append(c)
@@ -80,4 +81,3 @@ func drop_cargo(destination : int):
 	while len(cargo)-1 < MAX_CARGO:
 		cargo.append(gameVars.PLANETS.None)
 	
-	print(cargo)

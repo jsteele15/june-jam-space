@@ -44,6 +44,12 @@ var planet_colours : Dictionary = {
 	PLANETS.PLUTO : Color(0.785, 0.665, 0.0, 1.0)
 }
 
+# List of active planets
+var planet_options : Array = [gameVars.PLANETS.EARTH]
+
+# Planets to be added, in order
+var new_planets : Array = [gameVars.PLANETS.MOON, gameVars.PLANETS.MARS, gameVars.PLANETS.VENUS, gameVars.PLANETS.MERCURY, gameVars.PLANETS.JUPITER]
+
 #just used for the planets animation, has no relation to player speed
 var planet_spin_speed : float
 
