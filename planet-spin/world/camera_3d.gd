@@ -1,6 +1,6 @@
 class_name Camera extends Camera3D
 
-var zoom_sizes: Array = [30, 60, 100, 150, 150]
+var zoom_sizes: Array = [1, 30, 60, 100, 150, 150]
 var zoom_level: int = 0
 
 @onready var player : Player = null
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if zoom_level < 4:
+	if zoom_level < len(zoom_sizes) - 1:
 		if self.size < zoom_sizes[zoom_level]:
 			self.size += zoom_speed
 		if self.player == null:

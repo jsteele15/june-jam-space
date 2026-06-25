@@ -4,15 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://bdlh0tdi3gnxm" path="res://res/ui elements/package.png" id="1_ty1jt"]
 
 [node name="packages" type="Node3D" unique_id=769189381]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_i5rqi")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2128076184]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.80984664, 0, -0.2200042)
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, -0.80984664, 0, -0.2200042)
 visible = false
 texture = ExtResource("1_ty1jt")
 
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=198364095]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.40984663, 0, -0.2200042)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 visible = false
 texture = ExtResource("1_ty1jt")
 
