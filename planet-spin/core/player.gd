@@ -3,6 +3,8 @@ class_name Player extends Node3D
 #TODO have an accel and decel function
 #work out what angle its hitting the orbit
 #correct for speed
+@onready var rocket_fire_right : GPUParticles3D = $"rocket fire right"
+@onready var rocket_fire_left : GPUParticles3D = $"rocket fire right2"
 var planet_orbiting: Planet
 var radius = 2.0
 var angle = 0.0

@@ -11,9 +11,10 @@ backlight_enabled = true
 grow = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_d7yjx"]
-radius = 2.0
-height = 4.0
+radius = 1.5
+height = 3.0
 
 [node name="sun mesh" type="MeshInstance3D" unique_id=2093753677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055971146, 0, 0)
 material_override = SubResource("StandardMaterial3D_adodm")
 mesh = SubResource("SphereMesh_d7yjx")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://daekdc5r07x2q" path="res://core/player.gd" id="1_3x74s"]
 [ext_resource type="PackedScene" uid="uid://dhwlih0f25hyk" path="res://res/ship/ship blend.fbx" id="2_ptdtg"]
+[ext_resource type="PackedScene" uid="uid://bg2malpj765m8" path="res://res/particles/rocket_fire.tscn" id="3_4ae0v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x74s"]
 emission_enabled = true
@@ -38,5 +39,13 @@ shape = SubResource("CapsuleShape3D_3x74s")
 [node name="fuel tick" type="Timer" parent="." unique_id=720704101]
 wait_time = 0.1
 autostart = true
+
+[node name="rocket fire right" parent="." unique_id=1734555098 instance=ExtResource("3_4ae0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39938366, -0.15431952, 0.83887935)
+emitting = false
+
+[node name="rocket fire right2" parent="." unique_id=299743455 instance=ExtResource("3_4ae0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36013567, -0.15431952, 0.83887935)
+emitting = false
 
 [connection signal="timeout" from="fuel tick" to="." method="_on_fuel_tick_timeout"]

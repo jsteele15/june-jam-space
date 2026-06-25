@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	match planet_name:
 		gameVars.PLANETS.SUN:
-			planet_size = PLANET_SIZES.SUN
+			planet_size = PLANET_SIZES.LARGE
 			
 		gameVars.PLANETS.MERCURY:
 			planet_size = PLANET_SIZES.SMALL
@@ -59,7 +59,6 @@ func _ready() -> void:
 	_decide_sizes()
 	
 	drop_off_ring.modulate = gameVars.planet_colours[self.planet_name]
-	$Sprite3D.modulate = gameVars.planet_colours[self.planet_name]
 	
 	await get_tree().process_frame
 	for c in self.get_children():
@@ -89,11 +88,14 @@ func _decide_sizes():
 		PLANET_SIZES.SMALL:
 			col_box.shape = load("res://res/collision shapes/small_col.tres")
 			drop_off_ring.scale = Vector3(0.48, 0.48, 0.48)
+			drop_off_ring.frame = 2
 		PLANET_SIZES.MEDIUM:
 			col_box.shape = load("res://res/collision shapes/medium_col.tres")
 			drop_off_ring.scale = Vector3(0.8, 0.8, 0.8)
+			drop_off_ring.frame = 1
 		PLANET_SIZES.LARGE:
 			col_box.shape = load("res://res/collision shapes/large col.tres")
+			
 		PLANET_SIZES.SUN:
 			col_box.shape = load("res://res/collision shapes/large col.tres")
 
@@ -146,7 +148,5 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		print("exited %d", planet_name)
 		
 func scale_planet_UI(scale: float) -> void:
-	$Sprite3D.scale = Vector3(scale, scale, scale)
-	$Sprite3D.position.x = (-$Sprite3D.texture.get_width()/100)*scale -1
 	for i : Sprite3D in packages.get_children(true):
 		i.scale = Vector3(scale, scale, scale)

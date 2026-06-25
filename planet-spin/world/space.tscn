@@ -34,15 +34,25 @@ sky_material = SubResource("ShaderMaterial_iyt27")
 
 [sub_resource type="Environment" id="Environment_88r13"]
 background_mode = 2
+background_energy_multiplier = 2.27
 sky = SubResource("Sky_ceetw")
-ambient_light_source = 3
-ambient_light_energy = 1.66
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
 reflected_light_source = 2
 glow_enabled = true
-glow_intensity = 5.23
-glow_strength = 0.58
-glow_bloom = 0.14
+glow_levels/2 = 0.0
+glow_levels/3 = 0.0
+glow_levels/4 = 0.0
+glow_levels/6 = 0.53
+glow_intensity = 1.63
+glow_strength = 1.03
+glow_bloom = 0.18
 glow_blend_mode = 0
+glow_hdr_threshold = 0.58
+glow_hdr_scale = 1.22
+glow_hdr_luminance_cap = 69.31
+glow_map_strength = 0.44
 
 [node name="space" type="Node3D" unique_id=1755352422]
 script = ExtResource("1_qhdaa")
@@ -52,18 +62,18 @@ script = ExtResource("1_qhdaa")
 [node name="planets" type="Node" parent="." unique_id=149161201]
 
 [node name="sun" parent="planets" unique_id=976849000 instance=ExtResource("2_5adde")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 70)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 8.701806, 0, 18.655102)
 
 [node name="sun mesh" parent="planets/sun" unique_id=2093753677 instance=ExtResource("4_y8l3r")]
 
 [node name="mercury" parent="planets" unique_id=484875515 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.100161, 0, 21.141592)
 planet_name = 1
 
 [node name="mercury_mesh" parent="planets/mercury" unique_id=1187305185 instance=ExtResource("6_i08w8")]
 
 [node name="venus" parent="planets" unique_id=1901946466 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40692, 0, 9.960529)
 planet_name = 2
 
 [node name="venus_mesh" parent="planets/venus" unique_id=1504326002 instance=ExtResource("8_bbnai")]
@@ -80,17 +90,17 @@ planet_name = 4
 [node name="moon_mesh" parent="planets/moon" unique_id=1498792360 instance=ExtResource("10_i08w8")]
 
 [node name="mars" parent="planets" unique_id=2143195315 instance=ExtResource("2_5adde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.535201, 0, -12.202654)
 planet_name = 5
 
 [node name="mars_mesh" parent="planets/mars" unique_id=319051100 instance=ExtResource("12_ssc5l")]
 
 [node name="jupiter" parent="planets" unique_id=1370600723 instance=ExtResource("2_5adde")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -4.636, 0, 150)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -8.349884, 0, -21.695267)
 planet_name = 6
 
 [node name="jupiter_mesh" parent="planets/jupiter" unique_id=1722045894 instance=ExtResource("13_6mayy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22777033, 0, -0.27077484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6129905, 0, -0.27077484)
 
 [node name="saturn" parent="planets" unique_id=355479976 instance=ExtResource("2_5adde")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.132, 0, 150)
@@ -126,25 +136,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.708, 0, 0)
 [node name="Player" parent="." unique_id=1247875391 instance=ExtResource("3_88r13")]
 transform = Transform3D(0.5858249, -0.050871834, -0.8088395, 0.029840624, 0.9987052, -0.041200493, 0.8098881, 0, 0.5865844, -5.672345, 0, 3.2574825)
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1511748873]
-transform = Transform3D(-0.6242614, 0, -0.78121555, 0, 1, 0, 0.78121555, 0, -0.6242614, 1.9341934, 0, -111.03041)
-light_color = Color(0.99999994, 0.9892636, 0.9801275, 1)
-light_energy = 0.12
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741857564]
 environment = SubResource("Environment_88r13")
 
 [node name="ui" parent="." unique_id=668875438 instance=ExtResource("18_lodr4")]
-
-[node name="sun light2" type="OmniLight3D" parent="." unique_id=1085953847]
-transform = Transform3D(0.9996265, 0, 0.027328454, 0, 1, 0, -0.027328454, 0, 0.9996265, -0.51379704, 0.25413132, 9.939121)
-light_color = Color(1, 0.92599344, 0.72648776, 1)
-light_energy = 13.16
-light_indirect_energy = 7.48
-light_volumetric_fog_energy = 8.68
-light_size = 0.505
-light_specular = 0.76
-omni_range = 228.54495
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1815067820]
 transform = Transform3D(-5.9604645e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 5.9604645e-08, 2.6054018e-15, 0, 100, 0)
@@ -152,5 +147,5 @@ keep_aspect = 0
 projection = 1
 current = true
 fov = 73.125
-size = 20.0
+size = 30.0
 script = ExtResource("19_gf530")

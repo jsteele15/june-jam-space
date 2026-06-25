@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bg2malpj765m8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbdno"]
+albedo_color = Color(0.92151886, 0.7669586, 2.3102762e-06, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m41l0"]
+gravity = Vector3(0, 0, 10)
+linear_accel_min = 99.99999
+linear_accel_max = 99.99999
+color = Color(0.52480763, 0.00780694, 0.20288515, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ai8xv"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="Skin" id="Skin_sbdno"]
+
+[node name="rocket fire" type="GPUParticles3D" unique_id=1734555098]
+material_override = SubResource("StandardMaterial3D_sbdno")
+amount = 10
+lifetime = 0.23
+interp_to_end = 0.12
+preprocess = 1.37
+speed_scale = 39.01
+randomness = 0.08
+local_coords = true
+trail_enabled = true
+trail_lifetime = 1.95
+process_material = SubResource("ParticleProcessMaterial_m41l0")
+draw_pass_1 = SubResource("SphereMesh_ai8xv")
+draw_skin = SubResource("Skin_sbdno")
