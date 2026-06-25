@@ -31,6 +31,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if gameVars.game_started == false:
+		return
 	_move(delta)
 
 
@@ -68,7 +70,7 @@ func drop_cargo(destination : int):
 	var list_to_be_ordered : Array = []
 	for c in range(cargo.size()):
 		if cargo[c] == destination:
-			#add cash or some shit
+			gameVars.current_cash += gameVars.package_cash
 			cargo[c] = gameVars.PLANETS.None
 		else:
 			if cargo[c] > gameVars.PLANETS.None:

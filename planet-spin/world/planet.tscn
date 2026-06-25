@@ -22,9 +22,6 @@ texture = ExtResource("4_qpsm4")
 hframes = 3
 
 [node name="packages" parent="." unique_id=769189381 instance=ExtResource("5_a83c7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07285571, 2.4283638, 0.4630452)
-
-[node name="start packages" type="Timer" parent="." unique_id=825339626]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5808046, 2.4283638, 0.0028065145)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="timeout" from="start packages" to="." method="_on_start_packages_timeout"]

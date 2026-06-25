@@ -5,7 +5,6 @@ class_name Planet extends Node3D
 @onready var col_box : CollisionShape3D = $Area3D/CollisionShape3D
 @onready var drop_off_ring : Sprite3D = $"drop off ring"
 @onready var packages : PackageCollection = $packages
-@onready var start_pack : Timer = $"start packages"
 
 @onready var player_orbiting : bool = false
 
@@ -138,10 +137,10 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func orbit_player() ->void:
 	packages.pick_up_package(gameVars.player)
 
-func _on_start_packages_timeout() -> void:
-	packages.set_new_package()
 
 		
 func scale_planet_UI(scale: float) -> void:
+	packages.scale = Vector3(2, 2, 2)
+	return
 	for i : Sprite3D in packages.get_children(true):
 		i.scale = Vector3(scale, scale, scale)

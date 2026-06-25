@@ -5,14 +5,30 @@ var package_list : Array = []
 var package_destination : Array = []
 var planet_options : Array = []
 
+var package_circle = load("res://res/ui elements/packagecircle.png")
+var package_square = load("res://res/ui elements/packagesquare.png")
+var package_triangle = load("res://res/ui elements/packagetriangle.png")
+
 func _ready() -> void:
 	package_list = self.get_children()
 	for c in self.get_child_count():
 		package_destination.append(gameVars.PLANETS.None)
 
+func _decide_package_image(dest : int):
+	"""based on the package delivery destination, change the shape"""
+	var shape
+	
+	if gameVars.planet_shapes[dest] == gameVars.SHAPES.circle:
+		return package_circle
+	
+	if gameVars.planet_shapes[dest] == gameVars.SHAPES.square:
+		return package_square
+	
+	if gameVars.planet_shapes[dest] == gameVars.SHAPES.triangle:
+		return package_triangle
+
 func _choose_package_destination(pack : int):
 	"""want this to me more complex, but itll do for now"""
-	print("\nPlanet options ", planet_options)
 	if len(planet_options) == 0:
 		return
 	if len(planet_options) == 1:
@@ -20,9 +36,9 @@ func _choose_package_destination(pack : int):
 			return
 	#TODO change this up so new planets can come online
 	var filtered_options = planet_options.filter(func(i): return i != self.get_parent().planet_name)
-	print("Filtered ", filtered_options)
 	var planet_chosen : int = filtered_options.pick_random()
 	package_destination[pack] = planet_chosen
+	self.get_child(pack).texture = _decide_package_image(planet_chosen)
 	self.get_child(pack).modulate = gameVars.planet_colours[planet_chosen]
 
 

@@ -5,13 +5,10 @@ class_name Space extends Node3D
 @onready var sound_board : SoundBoard = $sound_board
 @onready var camera : Camera = $Camera3D
 @onready var player : Player = $Player
-
+var cur_level : int = 1
 func _ready() -> void:
 	next_level()
-	for planet : Planet in planet_layer.get_children():
-		if planet.planet_name == gameVars.PLANETS.EARTH:
-			planet.start_pack.start()
-			break 
+
 
 func _input(event: InputEvent) -> void:
 	#
@@ -19,6 +16,9 @@ func _input(event: InputEvent) -> void:
 	#	launch is space; you have to hold launch to leave planets atmosphere
 	#	left and right are left and right, but will only work when not in atmosphere
 	#
+	if gameVars.game_started == false:
+		return
+		
 	if event.is_action_pressed("launch"):
 		gameVars.player.firing_rockets = true
 		gameVars.player.rocket_fire_left.emitting = true
@@ -53,21 +53,49 @@ func _input(event: InputEvent) -> void:
 		print(camera.zoom_level)
 		next_level()
 		print(camera.zoom_level)
-		
+	
+	if event.is_action_pressed("esc"):
+		get_tree().quit()
+	
 		
 func next_level() -> void:
-	var next_planet = gameVars.new_planets.pop_front()
-	if next_planet == null:
-		return
+	var new_planets
+	
+	if cur_level == 1:
+		new_planets = [gameVars.PLANETS.MOON, gameVars.PLANETS.VENUS, gameVars.PLANETS.MARS, gameVars.PLANETS.EARTH]
+	
+	if cur_level == 2:
+		new_planets = [gameVars.PLANETS.SUN, gameVars.PLANETS.MERCURY, gameVars.PLANETS.JUPITER]
+	
+	for p in range(new_planets.size()):
+		gameVars.planet_options.append(new_planets[p])
+	
 	camera.zoom_level += 1
 	
-	gameVars.planet_options.append(next_planet)
+	
 	for planet : Planet in planet_layer.get_children():
 		planet.packages.planet_options = gameVars.planet_options
-		if planet.planet_name == next_planet:
-			planet.start_pack.start()
 		
 		var UI_scale: float = camera.zoom_sizes[camera.zoom_level]/camera.zoom_sizes[1]
-		planet.scale_planet_UI(UI_scale)
+		if cur_level == 2:
+			planet.scale_planet_UI(UI_scale)
+	cur_level += 1
 	
+
+
+func _on_package_timer_timeout() -> void:
+	if gameVars.game_started == false:
+		return
+	var planets_active = []
+	for planet : Planet in planet_layer.get_children():
+		if planet.planet_name in gameVars.planet_options:
+			planets_active.append(planet)
 	
+	var rand_plan = planets_active.pick_random()
+	rand_plan.packages.set_new_package()
+
+
+func _on_level_timer_timeout() -> void:
+	if gameVars.game_started == false:
+		return
+	next_level()

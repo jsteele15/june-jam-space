@@ -5,7 +5,7 @@ var zoom_level: int = 0
 
 @onready var player : Player = null
 
- 
+var end_x : int = 0
 
 var zoom_speed: float = 0.2
 
@@ -16,6 +16,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if gameVars.game_started == true:
+		if global_position.x < end_x:
+			self.global_position.x += 0.1
+	
 	if zoom_level < len(zoom_sizes) - 1:
 		if self.size < zoom_sizes[zoom_level]:
 			self.size += zoom_speed

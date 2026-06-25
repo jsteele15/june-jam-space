@@ -4,6 +4,7 @@ class_name FuelDrop extends Node3D
 @onready var spin_timer : Timer = $"spin timer"
 @onready var respawn_timer : Timer = $"respawn timer"
 
+var drop_locations : Array = [Vector3(-8.547, 0, 0), Vector3(5.643, 0, 3.267), Vector3(-2.559, 0, -11.353)]
 var collected : bool = false
 var fuel_add : int = 50
 
@@ -14,7 +15,7 @@ func _on_spin_timer_timeout() -> void:
 func respawn():
 	"""called somewhere, idk"""
 	self.visible = true
-	self.position.y = 0
+	self.position = drop_locations.pick_random()
 
 
 func _collect():
@@ -36,3 +37,4 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 func _on_respawn_timer_timeout() -> void:
 	respawn()
+	

@@ -44,6 +44,28 @@ var planet_colours : Dictionary = {
 	PLANETS.PLUTO : Color(0.785, 0.665, 0.0, 1.0)
 }
 
+#i know i shouldnt declare this in two places, but im in a rush
+enum SHAPES {
+	None = -1,
+	circle,
+	square,
+	triangle
+}
+
+var planet_shapes : Dictionary = {
+	PLANETS.SUN : SHAPES.circle,
+	PLANETS.MERCURY : SHAPES.triangle,
+	PLANETS.VENUS : SHAPES.square,
+	PLANETS.EARTH : SHAPES.square,
+	PLANETS.MOON : SHAPES.triangle,
+	PLANETS.MARS : SHAPES.square,
+	PLANETS.JUPITER : SHAPES.circle,
+	PLANETS.SATURN : SHAPES.circle,
+	PLANETS.URANUS : SHAPES.square,
+	PLANETS.NEPTUNE : SHAPES.square,
+	PLANETS.PLUTO : SHAPES.triangle
+}
+
 # List of active planets
 var planet_options : Array = [gameVars.PLANETS.EARTH]
 
@@ -58,6 +80,7 @@ var planet_spin_speed : float
 #
 #
 #current mission will be a planet you have to get to
+var game_started : bool = false
 var current_mission : int = 0
 #ive put the player ref here so im free to move it around different pivots without ref errors
 #its declared when the player loads
@@ -66,10 +89,10 @@ var player : Player
 #that way you have to decide between getting fuel or getting time
 var time_left : int = 100
 var fuel: int = 100
-var player_speed : float = 5.0
+var player_speed : float = 1.0
 var MAX_FUEL : int = 100
-var player_score : int = -100000000
 #used when pressing the rocket boost
 var speed_boost : float = 0.0
-var current_cash : int = 0
+var current_cash : int = -100000000
+var package_cash : int = 500000
 var MAX_SPEED : float = 8.0

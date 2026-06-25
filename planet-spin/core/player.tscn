@@ -29,11 +29,11 @@ wait_time = 0.1
 autostart = true
 
 [node name="rocket fire right" parent="." unique_id=1734555098 instance=ExtResource("3_4ae0v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39938366, -0.15431952, 0.83887935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35232562, -0.15431952, 0.83887935)
 emitting = false
 
 [node name="rocket fire right2" parent="." unique_id=299743455 instance=ExtResource("3_4ae0v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36013567, -0.15431952, 0.83887935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39359713, -0.15431952, 0.83887935)
 emitting = false
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=582505666]
