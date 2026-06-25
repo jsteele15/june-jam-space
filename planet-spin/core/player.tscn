@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxbt46sleg46y"]
 
 [ext_resource type="Script" uid="uid://daekdc5r07x2q" path="res://core/player.gd" id="1_3x74s"]
+[ext_resource type="PackedScene" uid="uid://dhwlih0f25hyk" path="res://res/ship/ship blend.fbx" id="2_ptdtg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x74s"]
 emission_enabled = true
@@ -10,14 +11,18 @@ emission = Color(1, 1, 1, 1)
 size = Vector3(0.185, 0.195, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3x74s"]
-radius = 0.6171875
-height = 1.2368164
+radius = 0.7636719
+height = 1.5273438
 
 [node name="Player" type="Node3D" unique_id=1247875391]
 script = ExtResource("1_3x74s")
 
+[node name="ship blend" parent="." unique_id=169076798 instance=ExtResource("2_ptdtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18193424, 0.33153617)
+
 [node name="ShipModel" type="MeshInstance3D" parent="." unique_id=50686177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19195879, -0.4299945)
+visible = false
 material_override = SubResource("StandardMaterial3D_3x74s")
 mesh = SubResource("BoxMesh_3x74s")
 

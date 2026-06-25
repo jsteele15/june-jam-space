@@ -12,7 +12,7 @@ config_version=5
 
 config/name="planet-spin"
 run/main_scene="uid://csumw250v5uwe"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,6 +22,10 @@ gameVars="*uid://bpy7e8uqc7i4q"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
