@@ -24,7 +24,8 @@ func _input(event: InputEvent) -> void:
 		gameVars.player.rocket_fire_left.emitting = true
 		gameVars.player.rocket_fire_right.emitting = true
 		sound_board.fire_rockets()
-		
+		#(-0.798689, 0.000687, -2.984277) this was the players pos we roughly wanna stop to do a tutorial
+
 	if event.is_action_released("launch"):
 		gameVars.player.firing_rockets = false
 		gameVars.player.rocket_fire_left.emitting = false
