@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://i7gachvxbh64" path="res://res/ui res/buttonbox.tres" id="7_gycre"]
 [ext_resource type="Script" uid="uid://bh4six8iaaf0c" path="res://ui/container_for_menu_buttons.gd" id="7_pa1oa"]
 [ext_resource type="Script" uid="uid://ds4xgbeadld2h" path="res://ui/game_button.gd" id="8_pa1oa"]
+[ext_resource type="PackedScene" uid="uid://bdoevlttcarlq" path="res://ui/story_box.tscn" id="10_ay4pc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tf0e0"]
 bg_color = Color(0, 0, 0, 0.61960787)
@@ -237,7 +238,7 @@ size_flags_vertical = 3
 [node name="container for menu buttons" type="GridContainer" parent="control for main menu" unique_id=1518362825]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4826389
+anchor_left = 0.5902778
 anchor_right = 0.9105903
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -297,9 +298,77 @@ text = "[right] Credits"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="credits" type="Control" parent="control for main menu" unique_id=1650597896]
+visible = false
+anchors_preset = 0
+anchor_right = 0.5711806
+anchor_bottom = 1.0030864
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="control for main menu/credits" unique_id=1911316712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.91764706, 0.7529412, 0.08627451, 1)
+
+[node name="GridContainer" type="GridContainer" parent="control for main menu/credits" unique_id=1383574664]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034954406
+anchor_top = 0.04
+anchor_right = 0.96960485
+anchor_bottom = 0.9692308
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="jam bone" parent="control for main menu/credits/GridContainer" unique_id=397977059 instance=ExtResource("6_obcwv")]
+layout_mode = 2
+text = "Jam bone
+Programing / Art"
+
+[node name="jisac" parent="control for main menu/credits/GridContainer" unique_id=1004580215 instance=ExtResource("6_obcwv")]
+layout_mode = 2
+bbcode_enabled = false
+text = "J. Isaac Gadient
+Narrative Design
+@ jisaacgadient 
+jisaacgadient.com "
+
+[node name="preatom" parent="control for main menu/credits/GridContainer" unique_id=598991203 instance=ExtResource("6_obcwv")]
+layout_mode = 2
+text = "Preatomic prince
+Programing"
+
+[node name="delta" parent="control for main menu/credits/GridContainer" unique_id=1535206238 instance=ExtResource("6_obcwv")]
+layout_mode = 2
+text = "Cathryn Stark
+Sound Designer
+@ deltahaas.deltaexmachina.com
+https://deltaexmachina.com/ "
+
+[node name="evan" parent="control for main menu/credits/GridContainer" unique_id=76986846 instance=ExtResource("6_obcwv")]
+layout_mode = 2
+text = "Evan
+Sound Designer"
+
+[node name="story box" parent="." unique_id=1136869669 instance=ExtResource("10_ay4pc")]
+anchor_left = 0.1953125
+anchor_top = 0.6805556
+anchor_right = 0.7604167
+anchor_bottom = 0.99382716
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
 [connection signal="timeout" from="ui update" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="control for main menu/container for menu buttons/game button start" to="control for main menu/container for menu buttons/game button start" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="control for main menu/container for menu buttons/game button start" to="control for main menu/container for menu buttons/game button start" method="_on_mouse_exited"]
 [connection signal="pressed" from="control for main menu/container for menu buttons/game button start" to="control for main menu/container for menu buttons" method="_on_game_button_start_pressed"]
 [connection signal="mouse_entered" from="control for main menu/container for menu buttons/game button credits" to="control for main menu/container for menu buttons/game button credits" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="control for main menu/container for menu buttons/game button credits" to="control for main menu/container for menu buttons/game button credits" method="_on_mouse_exited"]
+[connection signal="pressed" from="control for main menu/container for menu buttons/game button credits" to="control for main menu/container for menu buttons" method="_on_game_button_credits_pressed"]

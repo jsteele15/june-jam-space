@@ -14,3 +14,9 @@ func _process(delta: float) -> void:
 func _on_game_button_start_pressed() -> void:
 	self.get_parent().get_parent().start_game()
 	
+
+
+func _on_game_button_credits_pressed() -> void:
+	$"../credits".visible = true
+	for c in $"../credits/GridContainer".get_children():
+		c.colour_black()

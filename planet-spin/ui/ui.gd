@@ -5,6 +5,7 @@ class_name ui extends CanvasLayer
 @onready var container_for_cargo : GridContainer = $"control for cargo/container for cargo"
 @onready var money_text : GameText = $"money text"
 @onready var control_for_main_menu = $"control for main menu"
+@onready var story_box : StoryBox = $"story box"
 # Called when the node enters the scene tree for the first time.
 
 var package_circle = load("res://res/ui elements/packagecircle.png")
@@ -12,7 +13,7 @@ var package_square = load("res://res/ui elements/packagesquare.png")
 var package_triangle = load("res://res/ui elements/packagetriangle.png")
 
 func _ready() -> void:
-	pass # Replace with function body.
+	story_box.show_story_box(Story.STORY_BEAT.OPENING_TEXT)
 
 
 func _decide_package_image(dest : int):
