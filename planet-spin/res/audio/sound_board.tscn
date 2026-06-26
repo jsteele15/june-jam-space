@@ -1,17 +1,31 @@
 [gd_scene format=3 uid="uid://cqxt20y7yjup3"]
 
 [ext_resource type="Script" uid="uid://bkqfsbslr5c6v" path="res://res/audio/sound_board.gd" id="1_ev7av"]
-[ext_resource type="AudioStream" uid="uid://c3vrar347keaj" path="res://res/audio/sfx/amb_space_loop.wav" id="2_eitbg"]
+[ext_resource type="AudioStream" uid="uid://d4buqde4g12kv" path="res://res/audio/sfx/amb_space_loop_v2.wav" id="2_gr441"]
 [ext_resource type="AudioStream" uid="uid://6vrqwvuvq4n7" path="res://res/audio/tracks/Orbit_01_V1.mp3" id="3_8ro4s"]
+[ext_resource type="AudioStream" uid="uid://di4pggxf8sfyn" path="res://res/audio/sfx/sfx_text_loop.wav" id="4_gr441"]
+[ext_resource type="AudioStream" uid="uid://ckn7kcswhixg" path="res://res/audio/sfx/Delivery Pickup.wav" id="4_pn4tr"]
+[ext_resource type="AudioStream" uid="uid://csx3atyfhvnpp" path="res://res/audio/sfx/Swing Around Planet.wav" id="6_i8aqo"]
 
 [node name="sound_board" type="Node" unique_id=587396044]
 script = ExtResource("1_ev7av")
 
 [node name="world_ambiance" type="AudioStreamPlayer" parent="." unique_id=509133497]
-stream = ExtResource("2_eitbg")
+stream = ExtResource("2_gr441")
+volume_db = -13.167
 
 [node name="rocket_player" type="AudioStreamPlayer" parent="." unique_id=923345763]
 volume_db = -0.5
 
 [node name="track" type="AudioStreamPlayer" parent="." unique_id=1232552575]
 stream = ExtResource("3_8ro4s")
+
+[node name="pickup" type="AudioStreamPlayer" parent="." unique_id=1923385942]
+stream = ExtResource("4_pn4tr")
+
+[node name="fuelstuff" type="AudioStreamPlayer" parent="." unique_id=17572746]
+stream = ExtResource("4_gr441")
+volume_db = -5.0
+
+[node name="resetplay" type="AudioStreamPlayer" parent="." unique_id=1397748844]
+stream = ExtResource("6_i8aqo")

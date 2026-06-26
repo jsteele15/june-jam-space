@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://bh4six8iaaf0c" path="res://ui/container_for_menu_buttons.gd" id="7_pa1oa"]
 [ext_resource type="Script" uid="uid://ds4xgbeadld2h" path="res://ui/game_button.gd" id="8_pa1oa"]
 [ext_resource type="PackedScene" uid="uid://bdoevlttcarlq" path="res://ui/story_box.tscn" id="10_ay4pc"]
+[ext_resource type="AudioStream" uid="uid://bc3nx34wkdlk2" path="res://res/audio/sfx/ui_hover.wav" id="11_bi8hs"]
+[ext_resource type="AudioStream" uid="uid://cb7oer05ipkjq" path="res://res/audio/sfx/sfx_low_fuel_v2.wav" id="12_x7jpl"]
+[ext_resource type="AudioStream" uid="uid://d036j6tees7i3" path="res://res/audio/sfx/sfx_empty_fuel_v2.wav" id="13_os0ka"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tf0e0"]
 bg_color = Color(0, 0, 0, 0.61960787)
@@ -199,20 +202,37 @@ texture_under = ExtResource("3_tf0e0")
 texture_over = ExtResource("3_vkava")
 texture_progress = ExtResource("4_tf0e0")
 
-[node name="money text" parent="." unique_id=62988134 instance=ExtResource("6_obcwv")]
+[node name="control for text" type="Control" parent="." unique_id=1704207838]
 visible = false
+layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -176.0
-offset_right = 186.0
-offset_bottom = 45.0
-grow_vertical = 1
+offset_left = -193.0
+offset_right = 191.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="container for text" type="GridContainer" parent="control for text" unique_id=1422018984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="money text" parent="control for text/container for text" unique_id=62988134 instance=ExtResource("6_obcwv")]
+layout_mode = 2
 text = "[center]krkr"
 fit_content = true
 
-[node name="Panel" type="Panel" parent="money text" unique_id=1977535121]
+[node name="time text" parent="control for text/container for text" unique_id=2087436096 instance=ExtResource("6_obcwv")]
+layout_mode = 2
+text = "[center]krkr"
+fit_content = true
+
+[node name="Panel" type="Panel" parent="control for text" unique_id=1977535121]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -354,16 +374,28 @@ https://deltaexmachina.com/ "
 
 [node name="evan" parent="control for main menu/credits/GridContainer" unique_id=76986846 instance=ExtResource("6_obcwv")]
 layout_mode = 2
-text = "Evan
-Sound Designer"
+text = "Evan Arnett
+Composer/Sound Designer
+@EvanArnett.bsky.social
+https://www.evanarnett.com/"
 
 [node name="story box" parent="." unique_id=1136869669 instance=ExtResource("10_ay4pc")]
+visible = false
 anchor_left = 0.1953125
 anchor_top = 0.6805556
 anchor_right = 0.7604167
 anchor_bottom = 0.99382716
 size_flags_horizontal = 4
 size_flags_vertical = 8
+
+[node name="button hover" type="AudioStreamPlayer" parent="." unique_id=65732833]
+stream = ExtResource("11_bi8hs")
+
+[node name="low fuel sound" type="AudioStreamPlayer" parent="." unique_id=1411388684]
+stream = ExtResource("12_x7jpl")
+
+[node name="empty fuel sound" type="AudioStreamPlayer" parent="." unique_id=1012127348]
+stream = ExtResource("13_os0ka")
 
 [connection signal="timeout" from="ui update" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="control for main menu/container for menu buttons/game button start" to="control for main menu/container for menu buttons/game button start" method="_on_mouse_entered"]

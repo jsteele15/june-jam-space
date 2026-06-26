@@ -3,18 +3,36 @@ class_name ui extends CanvasLayer
 
 @onready var fuel_bar : TextureProgressBar = $ProgressBar
 @onready var container_for_cargo : GridContainer = $"control for cargo/container for cargo"
-@onready var money_text : GameText = $"money text"
+@onready var money_text : GameText = $"control for text/container for text/money text"
+@onready var time_text : GameText = $"control for text/container for text/time text"
 @onready var control_for_main_menu = $"control for main menu"
 @onready var story_box : StoryBox = $"story box"
+@onready var button_hover_sound : AudioStreamPlayer = $"button hover"
+@onready var low_fuel_sound : AudioStreamPlayer = $"low fuel sound"
+@onready var empty_fuel_sound : AudioStreamPlayer = $"empty fuel sound"
 # Called when the node enters the scene tree for the first time.
 
 var package_circle = load("res://res/ui elements/packagecircle.png")
 var package_square = load("res://res/ui elements/packagesquare.png")
 var package_triangle = load("res://res/ui elements/packagetriangle.png")
 
-func _ready() -> void:
-	story_box.show_story_box(Story.STORY_BEAT.OPENING_TEXT)
+#to trigger fuel sounds
+var tracking_fuel : int = 100
+var alert_triggered : bool = false
 
+func _track_fuel():
+	""""""
+	if gameVars.fuel > 30:
+		alert_triggered = false
+	
+	if gameVars.fuel < tracking_fuel:
+		if gameVars.fuel <= 30 and gameVars.fuel > 0 and alert_triggered == false:
+			low_fuel_sound.play()
+			alert_triggered = true
+			
+		if gameVars.fuel <= 0:
+			empty_fuel_sound.play()
+		tracking_fuel = gameVars.fuel
 
 func _decide_package_image(dest : int):
 	"""based on the package delivery destination, change the shape"""
@@ -43,11 +61,15 @@ func start_game():
 	"""called in the start game button"""
 	control_for_main_menu.free()
 	gameVars.game_started = true
+	if Story.tutorial_done == false:
+		gameVars.player.tutorial_timer.start()
 	fuel_bar.visible = true
 
-	money_text.visible = true
+	$"control for text".visible = true
 
 func _on_timer_timeout() -> void:
+	_track_fuel()
 	fuel_bar.value = gameVars.fuel
 	_change_cargo_colour()
 	money_text.text = "[center]{cash}".format({"cash": gameVars.current_cash})
+	time_text.text = "[center]Months left: {months}".format({"months": gameVars.months_left})

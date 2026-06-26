@@ -77,9 +77,7 @@ func _process(delta: float) -> void:
 		
 	planet_mesh.rotate_y(0.001)
 
-func _mission_arrived():
-	"""called when player get to the right planet, right now itll just give you a new mission randomly"""
-	gameVars.current_mission = randi_range(0, gameVars.PLANETS.Max-1)
+
 
 func _decide_sizes():
 	"""function called in the ready to decide how large the areas should be"""
@@ -124,8 +122,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
 		if gameVars.player.firing_rockets == true:
 			return
-		if gameVars.current_mission == self.planet_name:
-			_mission_arrived()
+		self.get_parent().get_parent().sound_board.package_sound()
 		pivot.pivot_dir(get_yaw_side(gameVars.player, self))
 		_change_player_parent(true)
 		col_box.disabled = true

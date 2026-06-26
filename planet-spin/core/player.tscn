@@ -40,4 +40,9 @@ emitting = false
 transform = Transform3D(0.0030955314, 0.21997818, 0.00014776364, -0.00025759963, 0.00015139952, -0.21999983, -0.21997808, 0.003095355, 0.0002597043, -0.08781889, -0.06128609, 0.37867367)
 texture = ExtResource("4_y0177")
 
+[node name="tutorial_timer" type="Timer" parent="." unique_id=1629491095]
+wait_time = 7.800000000000001
+one_shot = true
+
 [connection signal="timeout" from="fuel tick" to="." method="_on_fuel_tick_timeout"]
+[connection signal="timeout" from="tutorial_timer" to="." method="_on_tutorial_timer_timeout"]

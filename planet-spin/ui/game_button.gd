@@ -14,8 +14,10 @@ func _process(delta: float) -> void:
 func _on_mouse_entered() -> void:
 	self.get_child(0).visible = true
 	self.get_child(1).colour_black()
+	self.get_parent().get_parent().get_parent().button_hover_sound.play()
 
 
 func _on_mouse_exited() -> void:
 	self.get_child(0).visible = false
 	self.get_child(1).colour_yellow()
+	self.get_parent().get_parent().get_parent().button_hover_sound.play()

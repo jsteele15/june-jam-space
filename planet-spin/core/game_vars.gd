@@ -87,6 +87,7 @@ var current_mission : int = 0
 var player : Player
 #TODO decide if this should be money you have before going bancrupt
 #that way you have to decide between getting fuel or getting time
+var months_left : int = 12
 var time_left : int = 100
 var fuel: int = 100
 var player_speed : float = 1.0
@@ -96,3 +97,17 @@ var speed_boost : float = 0.0
 var current_cash : int = -100000000
 var package_cash : int = 500000
 var MAX_SPEED : float = 8.0
+
+func reset():
+	"""called in the story box"""
+	planet_options = [gameVars.PLANETS.EARTH]
+	game_started = false
+	current_mission = 0
+	months_left = 12
+	time_left = 100
+	fuel = 100
+	player_speed = 1.0
+#used when pressing the rocket boost
+	speed_boost = 0.0
+	current_cash = -100000000
+	package_cash = 500000

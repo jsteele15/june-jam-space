@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b7i2qxgvyf8ws" path="res://world/fuel_drop.tscn" id="18_gf530"]
 [ext_resource type="PackedScene" uid="uid://qn0l7ugeafch" path="res://ui/ui.tscn" id="18_lodr4"]
 [ext_resource type="Script" uid="uid://dqwklehe3b4td" path="res://world/camera_3d.gd" id="19_gf530"]
+[ext_resource type="PackedScene" uid="uid://bg2malpj765m8" path="res://res/particles/rocket_fire.tscn" id="20_fspvd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iyt27"]
 shader = ExtResource("5_5emu0")
@@ -155,9 +156,16 @@ script = ExtResource("19_gf530")
 autostart = true
 
 [node name="level timer" type="Timer" parent="timers" unique_id=1521192928]
-wait_time = 30.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 
+[node name="month timer" type="Timer" parent="timers" unique_id=1834896911]
+wait_time = 20.0
+
+[node name="rocket fire" parent="." unique_id=1734555098 instance=ExtResource("20_fspvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.583694, 0, -9.204836)
+
 [connection signal="timeout" from="timers/package timer" to="." method="_on_package_timer_timeout"]
 [connection signal="timeout" from="timers/level timer" to="." method="_on_level_timer_timeout"]
+[connection signal="timeout" from="timers/month timer" to="." method="_on_month_timer_timeout"]

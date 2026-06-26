@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://ckq2qy5fkroer" path="res://res/char heads/boza.png" id="1_0ul3o"]
 [ext_resource type="Script" uid="uid://bsoybts032l7n" path="res://ui/story_box.gd" id="1_uin8g"]
 [ext_resource type="PackedScene" uid="uid://cejilidw7p8rb" path="res://ui/game_text.tscn" id="2_uin8g"]
-[ext_resource type="StyleBox" uid="uid://i7gachvxbh64" path="res://res/ui res/buttonbox.tres" id="4_e6vjs"]
+[ext_resource type="FontFile" uid="uid://3rk2nlbtggyr" path="res://res/fonts/Ithaca-LVB75.ttf" id="4_bgg3n"]
+[ext_resource type="AudioStream" uid="uid://di4pggxf8sfyn" path="res://res/audio/sfx/sfx_text_loop.wav" id="5_bgg3n"]
+
+[sub_resource type="FontVariation" id="FontVariation_ajfjc"]
+base_font = ExtResource("4_bgg3n")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ul3o"]
 bg_color = Color(0, 0, 0, 0.61960787)
@@ -20,6 +24,18 @@ expand_margin_left = 8.0
 expand_margin_top = 8.0
 expand_margin_right = 12.0
 expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewxnm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="story box" type="Control" unique_id=1136869669]
 layout_mode = 3
@@ -49,9 +65,11 @@ expand_mode = 1
 layout_mode = 1
 offset_left = 221.0
 offset_top = 4.0
+offset_right = -12.0
 offset_bottom = -7.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 22
+theme_override_fonts/normal_font = SubResource("FontVariation_ajfjc")
+theme_override_font_sizes/normal_font_size = 32
 text = "dsufhuighriojdfoias"
 
 [node name="Panel" type="Panel" parent="." unique_id=2109560464]
@@ -61,6 +79,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 11.0
+offset_top = 6.0
 offset_right = -15.0
 offset_bottom = -9.0
 grow_horizontal = 2
@@ -69,12 +88,13 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0ul3o")
 
 [node name="quest button" type="Button" parent="." unique_id=1220120457]
-layout_mode = 0
-anchor_left = 0.33910534
-anchor_top = 0.7621359
-anchor_right = 0.57575756
-anchor_bottom = 0.9466019
-theme_override_styles/normal = ExtResource("4_e6vjs")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74747473
+anchor_top = 0.776699
+anchor_right = 0.984127
+anchor_bottom = 0.9611651
+theme_override_styles/normal = SubResource("StyleBoxFlat_ewxnm")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="quest button" unique_id=1912360476]
@@ -95,6 +115,20 @@ theme_override_font_sizes/normal_font_size = 22
 text = "[center]Next"
 vertical_alignment = 1
 
+[node name="typing" type="AudioStreamPlayer" parent="." unique_id=1298236828]
+stream = ExtResource("5_bgg3n")
+volume_db = -18.909
+
+[node name="offscreen text" type="Timer" parent="." unique_id=829493334]
+wait_time = 7.0
+one_shot = true
+
+[node name="expansion timer" type="Timer" parent="." unique_id=761937627]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="mouse_entered" from="quest button" to="." method="_on_quest_button_mouse_entered"]
 [connection signal="mouse_exited" from="quest button" to="." method="_on_quest_button_mouse_exited"]
 [connection signal="pressed" from="quest button" to="." method="_on_quest_button_pressed"]
+[connection signal="timeout" from="offscreen text" to="." method="_on_offscreen_text_timeout"]
+[connection signal="timeout" from="expansion timer" to="." method="_on_expansion_timer_timeout"]

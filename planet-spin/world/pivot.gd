@@ -23,6 +23,8 @@ func pivot_dir(ship_angle : float):
 	delay = true
 
 func _on_timer_timeout() -> void:
+	if Story.player_stop == true:
+		return
 	self.rotation_degrees.y -= spin_speed
 	delay = false
 	for c in self.get_children():

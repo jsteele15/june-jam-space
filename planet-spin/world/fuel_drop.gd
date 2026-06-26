@@ -6,7 +6,7 @@ class_name FuelDrop extends Node3D
 
 var drop_locations : Array = [Vector3(-8.547, 0, 0), Vector3(5.643, 0, 3.267), Vector3(-2.559, 0, -11.353)]
 var collected : bool = false
-var fuel_add : int = 50
+var fuel_add : int = 100
 
 func _on_spin_timer_timeout() -> void:
 	fuel_image.rotate_y(0.1)
@@ -20,6 +20,7 @@ func respawn():
 
 func _collect():
 	""""""
+	self.get_parent().get_parent().sound_board.fuel_func(1)
 	if gameVars.fuel + fuel_add > gameVars.MAX_FUEL:
 		gameVars.fuel = gameVars.MAX_FUEL
 	else:

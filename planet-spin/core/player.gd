@@ -5,6 +5,7 @@ class_name Player extends Node3D
 #correct for speed
 @onready var rocket_fire_right : GPUParticles3D = $"rocket fire right"
 @onready var rocket_fire_left : GPUParticles3D = $"rocket fire right2"
+@onready var tutorial_timer : Timer = $tutorial_timer
 var planet_orbiting: Planet
 var radius = 2.0
 var angle = 0.0
@@ -31,6 +32,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Story.player_stop == true:
+		return
 	if gameVars.game_started == false:
 		return
 	_move(delta)
@@ -85,4 +88,8 @@ func drop_cargo(destination : int):
 	while len(cargo)-1 < MAX_CARGO:
 		cargo.append(gameVars.PLANETS.None)
 	
-	print(cargo)
+
+
+func _on_tutorial_timer_timeout() -> void:
+	if Story.tutorial_done == false and Story.player_stop == false:
+		Story.player_stop = true
